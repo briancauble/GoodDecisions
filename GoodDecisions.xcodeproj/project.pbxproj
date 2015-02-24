@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60524BA81A9AFF6B00E2BB37 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60524BA71A9AFF6B00E2BB37 /* Media.xcassets */; };
 		6070D3871A9118FB0048BA7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3861A9118FB0048BA7C /* main.m */; };
 		6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3891A9118FB0048BA7C /* AppDelegate.m */; };
 		6070D38D1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6070D38B1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld */; };
 		6070D3901A9118FB0048BA7C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D38F1A9118FB0048BA7C /* ViewController.m */; };
-		6070D3931A9118FB0048BA7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6070D3911A9118FB0048BA7C /* Main.storyboard */; };
+		6070D3931A9118FB0048BA7C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6070D3911A9118FB0048BA7C /* Login.storyboard */; };
 		6070D3951A9118FB0048BA7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6070D3941A9118FB0048BA7C /* Images.xcassets */; };
 		6070D3981A9118FB0048BA7C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6070D3961A9118FB0048BA7C /* LaunchScreen.xib */; };
 		6070D3A41A9118FB0048BA7C /* GoodDecisionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3A31A9118FB0048BA7C /* GoodDecisionsTests.m */; };
+		609402B31A9C36DE00ABAAC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609402B21A9C36DE00ABAAC5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60524BA71A9AFF6B00E2BB37 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6070D3811A9118FB0048BA7C /* GoodDecisions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDecisions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3851A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3861A9118FB0048BA7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -36,12 +39,13 @@
 		6070D38C1A9118FB0048BA7C /* GoodDecisions.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoodDecisions.xcdatamodel; sourceTree = "<group>"; };
 		6070D38E1A9118FB0048BA7C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6070D38F1A9118FB0048BA7C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6070D3921A9118FB0048BA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6070D3921A9118FB0048BA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		6070D3941A9118FB0048BA7C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6070D3971A9118FB0048BA7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6070D39D1A9118FB0048BA7C /* GoodDecisionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDecisionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3A21A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3A31A9118FB0048BA7C /* GoodDecisionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDecisionsTests.m; sourceTree = "<group>"; };
+		609402B21A9C36DE00ABAAC5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +91,9 @@
 				6070D3891A9118FB0048BA7C /* AppDelegate.m */,
 				6070D38E1A9118FB0048BA7C /* ViewController.h */,
 				6070D38F1A9118FB0048BA7C /* ViewController.m */,
-				6070D3911A9118FB0048BA7C /* Main.storyboard */,
+				6070D3911A9118FB0048BA7C /* Login.storyboard */,
+				609402B21A9C36DE00ABAAC5 /* Main.storyboard */,
+				60524BA71A9AFF6B00E2BB37 /* Media.xcassets */,
 				6070D3941A9118FB0048BA7C /* Images.xcassets */,
 				6070D3961A9118FB0048BA7C /* LaunchScreen.xib */,
 				6070D38B1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld */,
@@ -202,8 +208,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6070D3931A9118FB0048BA7C /* Main.storyboard in Resources */,
+				6070D3931A9118FB0048BA7C /* Login.storyboard in Resources */,
+				609402B31A9C36DE00ABAAC5 /* Main.storyboard in Resources */,
 				6070D3981A9118FB0048BA7C /* LaunchScreen.xib in Resources */,
+				60524BA81A9AFF6B00E2BB37 /* Media.xcassets in Resources */,
 				6070D3951A9118FB0048BA7C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,12 +256,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6070D3911A9118FB0048BA7C /* Main.storyboard */ = {
+		6070D3911A9118FB0048BA7C /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6070D3921A9118FB0048BA7C /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		6070D3961A9118FB0048BA7C /* LaunchScreen.xib */ = {
@@ -348,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoodDecisions/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoodDecisions/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +426,7 @@
 				6070D3A91A9118FB0048BA7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6070D3AA1A9118FB0048BA7C /* Build configuration list for PBXNativeTarget "GoodDecisionsTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +435,7 @@
 				6070D3AC1A9118FB0048BA7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
