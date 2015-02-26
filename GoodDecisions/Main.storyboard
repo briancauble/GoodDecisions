@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="6s6-Fr-04b">
+            <objects>
+                <viewController id="q5j-V7-d5g" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vgs-AK-0wp"/>
+                        <viewControllerLayoutGuide type="bottom" id="ETY-Za-eJ0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S3j-j6-0r6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="main_background_iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-wV-Mj5">
+                                <rect key="frame" x="-57" y="-123" width="640" height="1136"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="record_decision_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KED-xh-a2T">
+                                <rect key="frame" x="148" y="45" width="118" height="118"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.79999999999999982" contentMode="center" fixedFrame="YES" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-Rv-tSq">
+                                <rect key="frame" x="-104" y="237" width="640" height="705"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UaZ-Cf-jc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-124" y="378"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="main_background_iphone6" width="750" height="1334"/>
+        <image name="record_decision_icon" width="118" height="118"/>
+        <image name="rectangle" width="640" height="749"/>
+    </resources>
 </document>
