@@ -35,6 +35,14 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    BOOL hasDoneSetup = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasDoneSetup"];
+    if (!hasDoneSetup) {
+        UIViewController *setupVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        
+        [self.window.rootViewController presentViewController:setupVC animated:NO completion:nil];
+        
+    }
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
