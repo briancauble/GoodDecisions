@@ -18,12 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // testing source control
-    UIImage *backgroundImage = [UIImage imageNamed:@"Launchimage.png"];
-    
-    UIImageView *backgroundImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
-    backgroundImageView.image = backgroundImage;
-    
-    [self.view insertSubview:backgroundImageView atIndex:0];
+   
 }
 
 - (void)didReceiveMemoryWarning {
