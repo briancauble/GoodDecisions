@@ -197,7 +197,7 @@ you?</string>
                         <constraints>
                             <constraint firstItem="hmp-HV-jxr" firstAttribute="centerX" secondItem="1bV-ZS-TRZ" secondAttribute="centerX" id="Gye-kg-L5i"/>
                             <constraint firstItem="hNE-aQ-efr" firstAttribute="centerX" secondItem="hmp-HV-jxr" secondAttribute="centerX" id="O7G-Ko-Cks"/>
-                            <constraint firstItem="bD7-Zu-rw5" firstAttribute="leading" secondItem="zwA-UQ-CFR" secondAttribute="leading" constant="225" id="Ymk-nw-jsn"/>
+                            <constraint firstAttribute="centerX" secondItem="bD7-Zu-rw5" secondAttribute="centerX" constant="-1" id="UjU-Ga-mCT"/>
                             <constraint firstItem="hmp-HV-jxr" firstAttribute="top" secondItem="hNE-aQ-efr" secondAttribute="bottom" constant="18" id="f6G-uZ-aeS"/>
                             <constraint firstItem="hNE-aQ-efr" firstAttribute="top" secondItem="8cg-83-vFA" secondAttribute="bottom" constant="34" id="hjD-tF-erN"/>
                             <constraint firstItem="hNE-aQ-efr" firstAttribute="centerX" secondItem="zwA-UQ-CFR" secondAttribute="centerX" id="or3-Za-mMT"/>
