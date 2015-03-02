@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q5j-V7-d5g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q5j-V7-d5g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Decision View Controller-->
@@ -16,27 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="main_background_iphone5" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-wV-Mj5">
-                                <rect key="frame" x="0.0" y="0.0" width="612" height="605"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="main_background_iphone5" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-wV-Mj5">
+                                <rect key="frame" x="0.0" y="0.0" width="612" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="record_decision_icon" translatesAutoresizingMaskIntoConstraints="NO" id="awi-H7-7Cw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_decision_icon" translatesAutoresizingMaskIntoConstraints="NO" id="awi-H7-7Cw">
                                 <rect key="frame" x="270" y="55" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="WPe-m3-ml6"/>
+                                    <constraint firstAttribute="width" constant="60" id="Z9p-if-4AJ"/>
+                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.79999999999999982" contentMode="center" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-Rv-tSq">
                                 <rect key="frame" x="0.0" y="252" width="640" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="nzP-WM-IkG"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" secondItem="Uwz-Rv-tSq" secondAttribute="height" constant="250" id="1ko-PO-Ew9"/>
-                            <constraint firstAttribute="centerY" secondItem="Uwz-Rv-tSq" secondAttribute="centerY" constant="-127" id="HsJ-36-27n"/>
-                            <constraint firstItem="awi-H7-7Cw" firstAttribute="top" secondItem="Vgs-AK-0wp" secondAttribute="bottom" constant="35" id="QNh-sk-c1C"/>
-                            <constraint firstAttribute="centerX" secondItem="3Ip-wV-Mj5" secondAttribute="centerX" constant="-6" id="SaC-H1-D7e"/>
-                            <constraint firstItem="Uwz-Rv-tSq" firstAttribute="leading" secondItem="3Ip-wV-Mj5" secondAttribute="trailing" constant="-612" id="WOp-bO-NzY"/>
-                            <constraint firstAttribute="centerY" secondItem="3Ip-wV-Mj5" secondAttribute="centerY" constant="-2.5" id="iFE-BM-UTw"/>
-                            <constraint firstAttribute="centerX" secondItem="awi-H7-7Cw" secondAttribute="centerX" id="oPd-w9-fbO"/>
-                            <constraint firstAttribute="width" secondItem="Uwz-Rv-tSq" secondAttribute="width" constant="-40" id="umm-qu-w97"/>
-                            <constraint firstAttribute="centerX" secondItem="Uwz-Rv-tSq" secondAttribute="centerX" constant="-20" id="z2g-h0-dHK"/>
+                            <constraint firstItem="3Ip-wV-Mj5" firstAttribute="leading" secondItem="Uwz-Rv-tSq" secondAttribute="leading" id="0R9-P5-zfF"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="3Ip-wV-Mj5" secondAttribute="bottom" id="9KF-wX-ncZ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Uwz-Rv-tSq" secondAttribute="bottom" constant="-2" id="Odl-eX-ULn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Ip-wV-Mj5" secondAttribute="trailing" constant="-28" id="QiK-pH-0Fd"/>
+                            <constraint firstItem="Uwz-Rv-tSq" firstAttribute="leading" secondItem="S3j-j6-0r6" secondAttribute="leading" id="VVl-tm-rff"/>
+                            <constraint firstItem="3Ip-wV-Mj5" firstAttribute="top" secondItem="S3j-j6-0r6" secondAttribute="top" id="dJI-30-jz3"/>
+                            <constraint firstItem="awi-H7-7Cw" firstAttribute="centerX" secondItem="S3j-j6-0r6" secondAttribute="centerX" id="n4F-PP-Nfl"/>
+                            <constraint firstItem="awi-H7-7Cw" firstAttribute="top" secondItem="Vgs-AK-0wp" secondAttribute="bottom" constant="35" id="sea-3D-8H6"/>
                         </constraints>
                     </view>
                 </viewController>
