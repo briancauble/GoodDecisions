@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60524BA81A9AFF6B00E2BB37 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60524BA71A9AFF6B00E2BB37 /* Media.xcassets */; };
+		6021EA051AA3CAE300D6FE4D /* DecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6021EA041AA3CAE300D6FE4D /* DecisionViewController.m */; };
+		6021EA081AA3CCC500D6FE4D /* SetupDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6021EA071AA3CCC500D6FE4D /* SetupDoneViewController.m */; };
 		6070D3871A9118FB0048BA7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3861A9118FB0048BA7C /* main.m */; };
 		6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3891A9118FB0048BA7C /* AppDelegate.m */; };
 		6070D38D1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6070D38B1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld */; };
@@ -30,7 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		60524BA71A9AFF6B00E2BB37 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		6021EA031AA3CAE300D6FE4D /* DecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionViewController.h; sourceTree = "<group>"; };
+		6021EA041AA3CAE300D6FE4D /* DecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionViewController.m; sourceTree = "<group>"; };
+		6021EA061AA3CCC500D6FE4D /* SetupDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupDoneViewController.h; sourceTree = "<group>"; };
+		6021EA071AA3CCC500D6FE4D /* SetupDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupDoneViewController.m; sourceTree = "<group>"; };
 		6070D3811A9118FB0048BA7C /* GoodDecisions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDecisions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3851A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3861A9118FB0048BA7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,11 +97,14 @@
 				6070D38F1A9118FB0048BA7C /* ViewController.m */,
 				6070D3911A9118FB0048BA7C /* Login.storyboard */,
 				609402B21A9C36DE00ABAAC5 /* Main.storyboard */,
-				60524BA71A9AFF6B00E2BB37 /* Media.xcassets */,
 				6070D3941A9118FB0048BA7C /* Images.xcassets */,
 				6070D3961A9118FB0048BA7C /* LaunchScreen.xib */,
 				6070D38B1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld */,
 				6070D3841A9118FB0048BA7C /* Supporting Files */,
+				6021EA031AA3CAE300D6FE4D /* DecisionViewController.h */,
+				6021EA041AA3CAE300D6FE4D /* DecisionViewController.m */,
+				6021EA061AA3CCC500D6FE4D /* SetupDoneViewController.h */,
+				6021EA071AA3CCC500D6FE4D /* SetupDoneViewController.m */,
 			);
 			path = GoodDecisions;
 			sourceTree = "<group>";
@@ -212,7 +219,6 @@
 				6070D3931A9118FB0048BA7C /* Login.storyboard in Resources */,
 				609402B31A9C36DE00ABAAC5 /* Main.storyboard in Resources */,
 				6070D3981A9118FB0048BA7C /* LaunchScreen.xib in Resources */,
-				60524BA81A9AFF6B00E2BB37 /* Media.xcassets in Resources */,
 				6070D3951A9118FB0048BA7C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6021EA081AA3CCC500D6FE4D /* SetupDoneViewController.m in Sources */,
+				6021EA051AA3CAE300D6FE4D /* DecisionViewController.m in Sources */,
 				6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */,
 				6070D38D1A9118FB0048BA7C /* GoodDecisions.xcdatamodeld in Sources */,
 				6070D3901A9118FB0048BA7C /* ViewController.m in Sources */,
