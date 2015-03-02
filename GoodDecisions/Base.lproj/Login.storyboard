@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="loP-sH-JYw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="loP-sH-JYw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JJ-Gn-b3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-764" y="393"/>
+            <point key="canvasLocation" x="-473" y="346"/>
         </scene>
         <!--LoginScreen-->
         <scene sceneID="ufC-wZ-h7g">
@@ -206,15 +206,15 @@ you?</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Rock This" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-Zu-rw5">
-                                <rect key="frame" x="225" y="466" width="152" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQh-s4-Yab">
+                                <rect key="frame" x="225" y="464" width="153" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="HVX-7g-iOl"/>
+                                    <constraint firstAttribute="height" constant="30" id="bKt-uI-cUu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="0.67843137254901964" green="0.25882352941176473" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQh-s4-Yab">
-                                <rect key="frame" x="177" y="541" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Let's Rock This">
+                                    <color key="titleColor" red="0.67843137249999996" green="0.25882352939999997" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -224,14 +224,14 @@ you?</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eiN-UM-GDI" firstAttribute="top" secondItem="BQh-s4-Yab" secondAttribute="bottom" constant="106" id="EOR-0Y-AAQ"/>
                             <constraint firstItem="hmp-HV-jxr" firstAttribute="centerX" secondItem="1bV-ZS-TRZ" secondAttribute="centerX" id="Gye-kg-L5i"/>
                             <constraint firstItem="hNE-aQ-efr" firstAttribute="centerX" secondItem="hmp-HV-jxr" secondAttribute="centerX" id="O7G-Ko-Cks"/>
-                            <constraint firstAttribute="centerX" secondItem="bD7-Zu-rw5" secondAttribute="centerX" constant="-1" id="UjU-Ga-mCT"/>
                             <constraint firstItem="hmp-HV-jxr" firstAttribute="top" secondItem="hNE-aQ-efr" secondAttribute="bottom" constant="18" id="f6G-uZ-aeS"/>
                             <constraint firstItem="hNE-aQ-efr" firstAttribute="top" secondItem="8cg-83-vFA" secondAttribute="bottom" constant="34" id="hjD-tF-erN"/>
                             <constraint firstItem="hNE-aQ-efr" firstAttribute="centerX" secondItem="zwA-UQ-CFR" secondAttribute="centerX" id="or3-Za-mMT"/>
-                            <constraint firstItem="eiN-UM-GDI" firstAttribute="top" secondItem="bD7-Zu-rw5" secondAttribute="bottom" constant="108" id="vqi-KG-Bso"/>
                             <constraint firstItem="1bV-ZS-TRZ" firstAttribute="top" secondItem="hmp-HV-jxr" secondAttribute="bottom" constant="8" symbolic="YES" id="y3H-QQ-MY1"/>
+                            <constraint firstAttribute="centerX" secondItem="BQh-s4-Yab" secondAttribute="centerX" constant="-1.5" id="z5L-ju-yfY"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
