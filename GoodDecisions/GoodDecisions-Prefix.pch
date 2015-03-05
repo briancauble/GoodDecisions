@@ -1,0 +1,48 @@
+//
+//  GoodDecisions-Prefix.pch
+//  GoodDecisions
+//
+//  Created by Abigail Fritz on 3/5/15.
+//  Copyright (c) 2015 Brian Cauble. All rights reserved.
+//
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#import "DDLog.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+#import "DDFileLogger.h"
+#import <Parse/Parse.h>
+
+
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_DEBUG;
+#else
+static const int ddLogLevel = LOG_LEVEL_INFO;
+#endif
+
+
+#define IS_4INCH_SCREEN     ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568.0)
+#define IS_IPAD             ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+
+#define MAIN_STORYBOARD     (IS_IPAD ? [UIStoryboard storyboardWithName:@"MainStoryboard-iPad" bundle:nil] : [UIStoryboard storyboardWithName:@"MainStoryboard-iPhone" bundle:nil])
+#define APP_DELEGATE        ((SCMAppDelegate *)[UIApplication sharedApplication].delegate)
+
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+

@@ -17,8 +17,9 @@
 		60A8BEA21AA8AE180042A733 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE9D1AA8AE180042A733 /* Images.xcassets */; };
 		60A8BEA31AA8AE180042A733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE9E1AA8AE180042A733 /* Main.storyboard */; };
 		60A8BEA91AA8AE220042A733 /* DecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEA61AA8AE220042A733 /* DecisionViewController.m */; };
-		60A8BEAA1AA8AE220042A733 /* SetupDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEA81AA8AE220042A733 /* SetupDoneViewController.m */; };
 		60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */; };
+		60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB11AA8BC890042A733 /* SetupDoneViewController.m */; };
+		60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +49,13 @@
 		60A8BE9E1AA8AE180042A733 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		60A8BEA51AA8AE220042A733 /* DecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionViewController.h; sourceTree = "<group>"; };
 		60A8BEA61AA8AE220042A733 /* DecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionViewController.m; sourceTree = "<group>"; };
-		60A8BEA71AA8AE220042A733 /* SetupDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupDoneViewController.h; sourceTree = "<group>"; };
-		60A8BEA81AA8AE220042A733 /* SetupDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupDoneViewController.m; sourceTree = "<group>"; };
 		60A8BEAC1AA8B3130042A733 /* UIView+Constraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Constraints.h"; sourceTree = "<group>"; };
 		60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Constraints.m"; sourceTree = "<group>"; };
+		60A8BEB01AA8BC890042A733 /* SetupDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupDoneViewController.h; sourceTree = "<group>"; };
+		60A8BEB11AA8BC890042A733 /* SetupDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupDoneViewController.m; sourceTree = "<group>"; };
+		60A8BEB31AA8BCBD0042A733 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		60A8BEB61AA8BD300042A733 /* GoodDecisions-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GoodDecisions-Prefix.pch"; sourceTree = "<group>"; };
 		95275A69B090381D3B540D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B66C0B8BF41B2E4226B6964D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +126,7 @@
 			children = (
 				6070D3851A9118FB0048BA7C /* Info.plist */,
 				6070D3861A9118FB0048BA7C /* main.m */,
+				60A8BEB61AA8BD300042A733 /* GoodDecisions-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -166,10 +171,9 @@
 		60A8BEA41AA8AE220042A733 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				60A8BEAF1AA8BC890042A733 /* Setup */,
 				60A8BEA51AA8AE220042A733 /* DecisionViewController.h */,
 				60A8BEA61AA8AE220042A733 /* DecisionViewController.m */,
-				60A8BEA71AA8AE220042A733 /* SetupDoneViewController.h */,
-				60A8BEA81AA8AE220042A733 /* SetupDoneViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -181,6 +185,17 @@
 				60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		60A8BEAF1AA8BC890042A733 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				60A8BEB01AA8BC890042A733 /* SetupDoneViewController.h */,
+				60A8BEB11AA8BC890042A733 /* SetupDoneViewController.m */,
+				60A8BEB31AA8BCBD0042A733 /* SignupViewController.h */,
+				60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */,
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 		70FFEB646029886F5A072887 /* Frameworks */ = {
@@ -329,9 +344,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */,
+				60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */,
 				6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */,
 				6070D3871A9118FB0048BA7C /* main.m in Sources */,
-				60A8BEAA1AA8AE220042A733 /* SetupDoneViewController.m in Sources */,
 				60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */,
 				60A8BEA91AA8AE220042A733 /* DecisionViewController.m in Sources */,
 			);
@@ -458,6 +474,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoodDecisions/GoodDecisions-Prefix.pch";
 				INFOPLIST_FILE = GoodDecisions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -472,6 +490,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoodDecisions/GoodDecisions-Prefix.pch";
 				INFOPLIST_FILE = GoodDecisions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
