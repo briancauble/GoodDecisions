@@ -26,7 +26,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.needsSetup = ![[NSUserDefaults standardUserDefaults] boolForKey:@"needsSetup"];
+    self.needsSetup = ![[NSUserDefaults standardUserDefaults] boolForKey:@"hasDoneSetup"];
     if (self.needsSetup) {
         self.setupVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         self.launchImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Launchimage"]];

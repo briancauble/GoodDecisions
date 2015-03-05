@@ -163,6 +163,15 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuY-16-7Ip">
+                                <rect key="frame" x="188" y="391" width="225" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Hio-g4-4fd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <color key="textColor" red="0.74116104009999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -174,6 +183,7 @@
                             <constraint firstAttribute="centerX" secondItem="HYL-3p-tes" secondAttribute="centerX" constant="-0.5" id="CIs-sQ-gum"/>
                             <constraint firstAttribute="centerX" secondItem="Xd8-UH-bLg" secondAttribute="centerX" id="ClS-zm-It6"/>
                             <constraint firstItem="t5I-pR-XSI" firstAttribute="top" secondItem="aQA-p8-3bj" secondAttribute="bottom" constant="8" id="FOZ-O1-91C"/>
+                            <constraint firstItem="SuY-16-7Ip" firstAttribute="centerX" secondItem="t5I-pR-XSI" secondAttribute="centerX" id="H6r-ct-m3o"/>
                             <constraint firstAttribute="centerX" secondItem="oQ8-aL-g2P" secondAttribute="centerX" id="Pei-96-STl"/>
                             <constraint firstItem="Xd8-UH-bLg" firstAttribute="top" secondItem="urW-98-Jal" secondAttribute="bottom" constant="35" id="U7i-gk-edx"/>
                             <constraint firstItem="oQ8-aL-g2P" firstAttribute="top" secondItem="rsH-qG-OBh" secondAttribute="bottom" constant="8" id="V4f-sY-zsF"/>
@@ -186,6 +196,8 @@
                             <constraint firstItem="t5I-pR-XSI" firstAttribute="width" secondItem="aQA-p8-3bj" secondAttribute="width" id="n2s-gn-Cif"/>
                             <constraint firstItem="HYL-3p-tes" firstAttribute="top" secondItem="oQ8-aL-g2P" secondAttribute="bottom" constant="105" id="nfq-6N-x2R"/>
                             <constraint firstItem="Dlk-ll-ASd" firstAttribute="top" secondItem="HYL-3p-tes" secondAttribute="bottom" constant="100" id="uuu-qY-jul"/>
+                            <constraint firstItem="SuY-16-7Ip" firstAttribute="width" secondItem="t5I-pR-XSI" secondAttribute="width" id="wK6-LW-f0c"/>
+                            <constraint firstItem="SuY-16-7Ip" firstAttribute="top" secondItem="t5I-pR-XSI" secondAttribute="bottom" id="za6-Ti-d9f"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -198,6 +210,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="email" destination="aQA-p8-3bj" id="JJ5-fi-sZY"/>
+                        <outlet property="errorLabel" destination="SuY-16-7Ip" id="N3z-2h-4AT"/>
                         <outlet property="password" destination="t5I-pR-XSI" id="ryD-Pb-2JP"/>
                         <outlet property="username" destination="khQ-m4-bPU" id="1yg-Hd-bG5"/>
                     </connections>
@@ -209,7 +222,7 @@
         <!--SetupScreen2-->
         <scene sceneID="eEe-pQ-lXo">
             <objects>
-                <viewController title="SetupScreen2" id="TRc-oC-Uxj" sceneMemberID="viewController">
+                <viewController title="SetupScreen2" id="TRc-oC-Uxj" customClass="SetupRemindersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQW-pd-SsF"/>
                         <viewControllerLayoutGuide type="bottom" id="8YC-ca-eGV"/>
@@ -255,8 +268,13 @@ you?</string>
                                     <constraint firstAttribute="height" constant="181" id="Zgg-Kt-sBd"/>
                                     <constraint firstAttribute="width" constant="300" id="zRj-lX-hZy"/>
                                 </constraints>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Ujv-2X-JSW">
+                                    <rect key="frame" x="0.0" y="66" width="300" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="kTv-8T-MfT" style="IBUITableViewCellStyleDefault" id="ibM-Ag-244">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="kTv-8T-MfT" style="IBUITableViewCellStyleDefault" id="ibM-Ag-244" customClass="ChekmarkSelectedTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ibM-Ag-244" id="gEb-4Q-mjt">
@@ -272,6 +290,10 @@ you?</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TRc-oC-Uxj" id="z23-lj-rct"/>
+                                    <outlet property="delegate" destination="TRc-oC-Uxj" id="fmW-cm-Q6g"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,6 +318,9 @@ you?</string>
                     </view>
                     <navigationItem key="navigationItem" id="zBa-G9-SAD"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="table" destination="X1B-Q3-q69" id="YcU-Ih-E7z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSB-84-Glg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

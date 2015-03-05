@@ -30,8 +30,8 @@
 
 -(IBAction)setupDone:(id)sender{
     
-//    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"needsSetup"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"hasDoneSetup"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

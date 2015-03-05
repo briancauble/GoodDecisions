@@ -38,7 +38,14 @@
     self.user.username = self.username.text;
     self.user.password = self.password.text;
     self.user.email = self.email.text;
-    if (self.user.username && self.user.password) {
+        
+    if(![self.user.username length]){
+            self.errorLabel.text = @"missing username";
+    }else if(![self.user.password length]){
+        self.errorLabel.text = @"missing password";
+    }else if(![self.user.email length]){
+        self.errorLabel.text = @"missing email";
+    }else{
         [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(succeeded){
                 [self performSegueWithIdentifier:@"SecondSetupScreen" sender:nil];
@@ -59,4 +66,8 @@
     }
     return YES;
 }
-@end
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}@end

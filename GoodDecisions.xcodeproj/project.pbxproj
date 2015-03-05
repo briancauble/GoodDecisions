@@ -20,6 +20,8 @@
 		60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */; };
 		60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB11AA8BC890042A733 /* SetupDoneViewController.m */; };
 		60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */; };
+		60A8BEB91AA8E5200042A733 /* SetupRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB81AA8E5200042A733 /* SetupRemindersViewController.m */; };
+		60A8BEC11AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEC01AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		60A8BEB31AA8BCBD0042A733 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		60A8BEB61AA8BD300042A733 /* GoodDecisions-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GoodDecisions-Prefix.pch"; sourceTree = "<group>"; };
+		60A8BEB71AA8E5200042A733 /* SetupRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupRemindersViewController.h; sourceTree = "<group>"; };
+		60A8BEB81AA8E5200042A733 /* SetupRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupRemindersViewController.m; sourceTree = "<group>"; };
+		60A8BEBF1AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChekmarkSelectedTableViewCell.h; sourceTree = "<group>"; };
+		60A8BEC01AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChekmarkSelectedTableViewCell.m; sourceTree = "<group>"; };
 		95275A69B090381D3B540D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B66C0B8BF41B2E4226B6964D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,10 +117,12 @@
 		6070D3831A9118FB0048BA7C /* GoodDecisions */ = {
 			isa = PBXGroup;
 			children = (
+				60A8BEBA1AA8E7BF0042A733 /* DataModel */,
 				60A8BEAB1AA8B3130042A733 /* Helpers */,
 				6070D3881A9118FB0048BA7C /* AppDelegate.h */,
 				6070D3891A9118FB0048BA7C /* AppDelegate.m */,
 				60A8BEA41AA8AE220042A733 /* ViewControllers */,
+				60A8BEBE1AA8ECAC0042A733 /* Views */,
 				60A8BE961AA8AE180042A733 /* Resources */,
 				6070D3841A9118FB0048BA7C /* Supporting Files */,
 			);
@@ -194,8 +202,26 @@
 				60A8BEB11AA8BC890042A733 /* SetupDoneViewController.m */,
 				60A8BEB31AA8BCBD0042A733 /* SignupViewController.h */,
 				60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */,
+				60A8BEB71AA8E5200042A733 /* SetupRemindersViewController.h */,
+				60A8BEB81AA8E5200042A733 /* SetupRemindersViewController.m */,
 			);
 			path = Setup;
+			sourceTree = "<group>";
+		};
+		60A8BEBA1AA8E7BF0042A733 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		60A8BEBE1AA8ECAC0042A733 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				60A8BEBF1AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.h */,
+				60A8BEC01AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		70FFEB646029886F5A072887 /* Frameworks */ = {
@@ -344,8 +370,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60A8BEC11AA8ECE70042A733 /* ChekmarkSelectedTableViewCell.m in Sources */,
 				60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */,
 				60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */,
+				60A8BEB91AA8E5200042A733 /* SetupRemindersViewController.m in Sources */,
 				6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */,
 				6070D3871A9118FB0048BA7C /* main.m in Sources */,
 				60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */,
