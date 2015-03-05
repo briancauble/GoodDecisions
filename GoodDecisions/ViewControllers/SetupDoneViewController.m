@@ -1,36 +1,22 @@
 //
-//  DecisionViewController.m
+//  SetupDoneViewController.m
 //  GoodDecisions
 //
 //  Created by Abigail Fritz on 3/1/15.
 //  Copyright (c) 2015 Brian Cauble. All rights reserved.
 //
 
-#import "DecisionViewController.h"
+#import "SetupDoneViewController.h"
 
-@interface DecisionViewController ()
+@interface SetupDoneViewController ()
 
 @end
 
-@implementation DecisionViewController
+@implementation SetupDoneViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
     // Do any additional setup after loading the view.
-}
-
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +24,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ *  At end of setup screens
+ */
+
+-(IBAction)setupDone:(id)sender{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"needsSetup"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 /*
 #pragma mark - Navigation
 
@@ -47,7 +45,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
 
 @end
