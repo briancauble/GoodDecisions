@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChekmarkSelectedTableViewCell : UITableViewCell
+@interface CheckmarkSelectedTableViewCell : UITableViewCell
 
 @end

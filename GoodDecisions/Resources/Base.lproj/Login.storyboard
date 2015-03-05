@@ -274,7 +274,7 @@ you?</string>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="kTv-8T-MfT" style="IBUITableViewCellStyleDefault" id="ibM-Ag-244" customClass="ChekmarkSelectedTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="kTv-8T-MfT" style="IBUITableViewCellStyleDefault" id="ibM-Ag-244" customClass="CheckmarkSelectedTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ibM-Ag-244" id="gEb-4Q-mjt">
