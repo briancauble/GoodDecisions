@@ -7,9 +7,11 @@
 //
 
 #import "SetupRemindersViewController.h"
+#import "DataManager.h"
+#import "Habit.h"
 
 @interface SetupRemindersViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) IBOutlet UITableView *table;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *tableData;
 @end
 
@@ -17,35 +19,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PFQuery *query = [PFQuery queryWithClassName:@"Habit"];
+    PFQuery *query = [Habit query];
+    [query whereKey:@"type" containedIn:[DataManager sharedManager].decisionTypes];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.tableData = objects;
-        [self.table reloadData];
+        [self.tableView reloadData];
     }];
+    
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return  self.tableData.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = self.tableData[indexPath.row][@"name"];
+    Habit *habit = self.tableData[indexPath.row];
+    cell.textLabel.text = habit.name;
+    if (habit.isSelected) {
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
     return cell;
 }
-/*
+
+
 #pragma mark - Navigation
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"setupDoneSegue"]) {
+        if (!self.navigationController) {
+            [self saveSelection];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            return NO;
+        }
+    }
+    return YES;
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"setupDoneSegue"]) {
+        [self saveSelection];
+    }
 }
-*/
 
+-(void)saveSelection{
+    [[DataManager sharedManager] clearAllHabits];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Habit *habit = self.tableData[indexPath.row];
+    [[DataManager sharedManager] addHabit:habit];
+}
 @end

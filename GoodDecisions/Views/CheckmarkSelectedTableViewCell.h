@@ -1,5 +1,5 @@
 //
-//  ChekmarkSelectedTableViewCell.h
+//  CheckmarkSelectedTableViewCell.h
 //  GoodDecisions
 //
 //  Created by Abigail Fritz on 3/5/15.

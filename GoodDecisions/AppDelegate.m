@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DataManager.h"
+#import "MinimalDecisionViewController.h"
+#import "UIView+Constraints.h"
 
 @interface AppDelegate ()
 
@@ -19,10 +22,16 @@
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"cJOeBpOQkZVFFiDrtbtjmsgIt5CrVgfINqBPyBkh"
                   clientKey:@"Gut2htWGgdZRT5NTiwqkqVGynw8WmIETfgbGfKvk"];
+    [DataManager sharedManager];
+    UILocalNotification *notification = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification) {
+        DDLogDebug(@"did launch with notification");
+    }
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
@@ -45,6 +54,26 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
 }
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    
+}
 
+-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler{
+    if ([identifier isEqualToString:@"Update"]) {
+        DDLogDebug(@"handle action: Update");
+        MinimalDecisionViewController *minimalVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MinimalDecisionViewController"];
+        minimalVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        NSString *typeId =notification.userInfo[@"typeId"];
+        if ([typeId length]) {
+            minimalVC.type = [DecisionType objectWithoutDataWithObjectId:typeId];
+//            [self.window setRootViewController:minimalVC];
+            [self.window.rootViewController presentViewController:minimalVC animated:NO completion:nil];
+        }
+        
 
+    }
+    completionHandler?completionHandler():nil;
+    
+    
+}
 @end

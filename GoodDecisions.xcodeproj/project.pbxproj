@@ -22,6 +22,17 @@
 		60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */; };
 		60A8BEB91AA8E5200042A733 /* SetupRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB81AA8E5200042A733 /* SetupRemindersViewController.m */; };
 		60A8BEC11AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEC01AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m */; };
+		60A8BEC41AA8FC2E0042A733 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEC31AA8FC2E0042A733 /* DataManager.m */; };
+		60A8BECA1AA8FFFC0042A733 /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEC91AA8FFFB0042A733 /* Decision.m */; };
+		60A8BECD1AA900D30042A733 /* DecisionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BECC1AA900D30042A733 /* DecisionType.m */; };
+		60A8BED01AA903340042A733 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BECF1AA903340042A733 /* Habit.m */; };
+		60A8BED31AA905360042A733 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BED21AA905360042A733 /* Reminder.m */; };
+		60A8BED51AA99A5B0042A733 /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BED41AA99A5B0042A733 /* RatingView.xib */; };
+		60A8BED81AA9A00C0042A733 /* RatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BED71AA9A00C0042A733 /* RatingView.m */; };
+		60A8BEDB1AA9E7180042A733 /* TintedBackgroundImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEDA1AA9E7170042A733 /* TintedBackgroundImageButton.m */; };
+		60A8BEDE1AA9F6F90042A733 /* WhyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */; };
+		60A8BEE41AA9F8C00042A733 /* MinimalDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */; };
+		60A8BEE71AAA1A090042A733 /* DecisionHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +73,27 @@
 		60A8BEB81AA8E5200042A733 /* SetupRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupRemindersViewController.m; sourceTree = "<group>"; };
 		60A8BEBF1AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckmarkSelectedTableViewCell.h; sourceTree = "<group>"; };
 		60A8BEC01AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckmarkSelectedTableViewCell.m; sourceTree = "<group>"; };
+		60A8BEC21AA8FC2E0042A733 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		60A8BEC31AA8FC2E0042A733 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		60A8BEC81AA8FFFB0042A733 /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
+		60A8BEC91AA8FFFB0042A733 /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decision.m; sourceTree = "<group>"; };
+		60A8BECB1AA900D30042A733 /* DecisionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionType.h; sourceTree = "<group>"; };
+		60A8BECC1AA900D30042A733 /* DecisionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionType.m; sourceTree = "<group>"; };
+		60A8BECE1AA903340042A733 /* Habit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Habit.h; sourceTree = "<group>"; };
+		60A8BECF1AA903340042A733 /* Habit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
+		60A8BED11AA905360042A733 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		60A8BED21AA905360042A733 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
+		60A8BED41AA99A5B0042A733 /* RatingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
+		60A8BED61AA9A00C0042A733 /* RatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingView.h; sourceTree = "<group>"; };
+		60A8BED71AA9A00C0042A733 /* RatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingView.m; sourceTree = "<group>"; };
+		60A8BED91AA9E7170042A733 /* TintedBackgroundImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TintedBackgroundImageButton.h; sourceTree = "<group>"; };
+		60A8BEDA1AA9E7170042A733 /* TintedBackgroundImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TintedBackgroundImageButton.m; sourceTree = "<group>"; };
+		60A8BEDC1AA9F6F90042A733 /* WhyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyCollectionViewCell.h; sourceTree = "<group>"; };
+		60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyCollectionViewCell.m; sourceTree = "<group>"; };
+		60A8BEE21AA9F8C00042A733 /* MinimalDecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinimalDecisionViewController.h; sourceTree = "<group>"; };
+		60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinimalDecisionViewController.m; sourceTree = "<group>"; };
+		60A8BEE51AAA1A080042A733 /* DecisionHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		95275A69B090381D3B540D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B66C0B8BF41B2E4226B6964D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +214,8 @@
 				60A8BEAF1AA8BC890042A733 /* Setup */,
 				60A8BEA51AA8AE220042A733 /* DecisionViewController.h */,
 				60A8BEA61AA8AE220042A733 /* DecisionViewController.m */,
+				60A8BEE21AA9F8C00042A733 /* MinimalDecisionViewController.h */,
+				60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -211,6 +245,16 @@
 		60A8BEBA1AA8E7BF0042A733 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				60A8BEC21AA8FC2E0042A733 /* DataManager.h */,
+				60A8BEC31AA8FC2E0042A733 /* DataManager.m */,
+				60A8BEC81AA8FFFB0042A733 /* Decision.h */,
+				60A8BEC91AA8FFFB0042A733 /* Decision.m */,
+				60A8BECB1AA900D30042A733 /* DecisionType.h */,
+				60A8BECC1AA900D30042A733 /* DecisionType.m */,
+				60A8BECE1AA903340042A733 /* Habit.h */,
+				60A8BECF1AA903340042A733 /* Habit.m */,
+				60A8BED11AA905360042A733 /* Reminder.h */,
+				60A8BED21AA905360042A733 /* Reminder.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -220,6 +264,15 @@
 			children = (
 				60A8BEBF1AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.h */,
 				60A8BEC01AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m */,
+				60A8BED41AA99A5B0042A733 /* RatingView.xib */,
+				60A8BED61AA9A00C0042A733 /* RatingView.h */,
+				60A8BED71AA9A00C0042A733 /* RatingView.m */,
+				60A8BED91AA9E7170042A733 /* TintedBackgroundImageButton.h */,
+				60A8BEDA1AA9E7170042A733 /* TintedBackgroundImageButton.m */,
+				60A8BEDC1AA9F6F90042A733 /* WhyCollectionViewCell.h */,
+				60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */,
+				60A8BEE51AAA1A080042A733 /* DecisionHeaderCollectionReusableView.h */,
+				60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +373,7 @@
 				60A8BEA21AA8AE180042A733 /* Images.xcassets in Resources */,
 				60A8BE9F1AA8AE180042A733 /* LaunchScreen.xib in Resources */,
 				60A8BEA11AA8AE180042A733 /* ReenieBeanie.ttf in Resources */,
+				60A8BED51AA99A5B0042A733 /* RatingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,12 +425,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				60A8BEC11AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m in Sources */,
+				60A8BEDE1AA9F6F90042A733 /* WhyCollectionViewCell.m in Sources */,
+				60A8BEE71AAA1A090042A733 /* DecisionHeaderCollectionReusableView.m in Sources */,
 				60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */,
 				60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */,
+				60A8BED81AA9A00C0042A733 /* RatingView.m in Sources */,
+				60A8BECD1AA900D30042A733 /* DecisionType.m in Sources */,
 				60A8BEB91AA8E5200042A733 /* SetupRemindersViewController.m in Sources */,
 				6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */,
+				60A8BED01AA903340042A733 /* Habit.m in Sources */,
 				6070D3871A9118FB0048BA7C /* main.m in Sources */,
 				60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */,
+				60A8BECA1AA8FFFC0042A733 /* Decision.m in Sources */,
+				60A8BEDB1AA9E7180042A733 /* TintedBackgroundImageButton.m in Sources */,
+				60A8BEE41AA9F8C00042A733 /* MinimalDecisionViewController.m in Sources */,
+				60A8BED31AA905360042A733 /* Reminder.m in Sources */,
+				60A8BEC41AA8FC2E0042A733 /* DataManager.m in Sources */,
 				60A8BEA91AA8AE220042A733 /* DecisionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

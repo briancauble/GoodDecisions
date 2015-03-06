@@ -222,7 +222,7 @@
         <!--SetupScreen2-->
         <scene sceneID="eEe-pQ-lXo">
             <objects>
-                <viewController title="SetupScreen2" id="TRc-oC-Uxj" customClass="SetupRemindersViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupRemindersViewController" title="SetupScreen2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TRc-oC-Uxj" customClass="SetupRemindersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQW-pd-SsF"/>
                         <viewControllerLayoutGuide type="bottom" id="8YC-ca-eGV"/>
@@ -251,18 +251,18 @@ you?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7do-8A-ssa">
-                                <rect key="frame" x="277" y="479" width="47" height="38"/>
+                                <rect key="frame" x="277" y="542" width="47" height="38"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ykK-1A-KEJ" kind="show" id="p0r-7s-Cq8"/>
+                                    <segue destination="ykK-1A-KEJ" kind="show" identifier="setupDoneSegue" id="p0r-7s-Cq8"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X1B-Q3-q69">
-                                <rect key="frame" x="158" y="290" width="300" height="181"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X1B-Q3-q69">
+                                <rect key="frame" x="158" y="290" width="300" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="181" id="Zgg-Kt-sBd"/>
@@ -290,6 +290,11 @@ you?</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Zgg-Kt-sBd"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="TRc-oC-Uxj" id="z23-lj-rct"/>
                                     <outlet property="delegate" destination="TRc-oC-Uxj" id="fmW-cm-Q6g"/>
@@ -302,8 +307,9 @@ you?</string>
                             <constraint firstItem="Bt8-4P-z7y" firstAttribute="top" secondItem="Nnm-8g-r5i" secondAttribute="bottom" constant="8" symbolic="YES" id="8yC-aV-UCD"/>
                             <constraint firstItem="Nnm-8g-r5i" firstAttribute="centerX" secondItem="lux-w0-vka" secondAttribute="centerX" id="98a-eO-Pe4"/>
                             <constraint firstItem="Bt8-4P-z7y" firstAttribute="centerX" secondItem="Nnm-8g-r5i" secondAttribute="centerX" id="Kx7-KJ-Oto"/>
-                            <constraint firstItem="8YC-ca-eGV" firstAttribute="top" secondItem="7do-8A-ssa" secondAttribute="bottom" constant="83" id="ORk-WO-KUr"/>
+                            <constraint firstItem="8YC-ca-eGV" firstAttribute="top" secondItem="7do-8A-ssa" secondAttribute="bottom" constant="20" id="ORk-WO-KUr"/>
                             <constraint firstItem="7do-8A-ssa" firstAttribute="centerX" secondItem="Bt8-4P-z7y" secondAttribute="centerX" id="b96-oN-u0O"/>
+                            <constraint firstItem="7do-8A-ssa" firstAttribute="top" secondItem="X1B-Q3-q69" secondAttribute="bottom" priority="500" constant="10" id="bXe-go-Qib"/>
                             <constraint firstItem="Nnm-8g-r5i" firstAttribute="centerX" secondItem="5x3-cn-eYQ" secondAttribute="centerX" id="kC7-u8-dLj"/>
                             <constraint firstItem="Bt8-4P-z7y" firstAttribute="centerX" secondItem="X1B-Q3-q69" secondAttribute="centerX" constant="-8" id="kyx-ee-W0q"/>
                             <constraint firstItem="Nnm-8g-r5i" firstAttribute="top" secondItem="5x3-cn-eYQ" secondAttribute="bottom" constant="17" id="mti-Ko-N5r"/>
@@ -319,7 +325,7 @@ you?</string>
                     <navigationItem key="navigationItem" id="zBa-G9-SAD"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="table" destination="X1B-Q3-q69" id="YcU-Ih-E7z"/>
+                        <outlet property="tableView" destination="X1B-Q3-q69" id="c9a-Eu-Nsc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSB-84-Glg" userLabel="First Responder" sceneMemberID="firstResponder"/>
