@@ -7,9 +7,13 @@
 //
 
 #import "RatingView.h"
+#import "UIView+Constraints.h"
+
 @interface RatingView ()
+
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic) IBOutletCollection(UIButton) NSArray *buttonCollection;
+
 @end
 
 @implementation RatingView
@@ -17,6 +21,7 @@
 -(void)awakeFromNib {
     [[NSBundle mainBundle] loadNibNamed:@"RatingView" owner:self options:nil];
     [self addSubview: self.contentView];
+    [self.contentView addConstraintsToFillSpaceOfRelatedView:self];
 }
 
 -(IBAction)selectRating:(UIButton *)sender{

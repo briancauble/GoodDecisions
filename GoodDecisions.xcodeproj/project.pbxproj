@@ -149,10 +149,10 @@
 		6070D3831A9118FB0048BA7C /* GoodDecisions */ = {
 			isa = PBXGroup;
 			children = (
-				60A8BEBA1AA8E7BF0042A733 /* DataModel */,
-				60A8BEAB1AA8B3130042A733 /* Helpers */,
 				6070D3881A9118FB0048BA7C /* AppDelegate.h */,
 				6070D3891A9118FB0048BA7C /* AppDelegate.m */,
+				60A8BEBA1AA8E7BF0042A733 /* DataModel */,
+				60A8BEAB1AA8B3130042A733 /* Helpers */,
 				60A8BEA41AA8AE220042A733 /* ViewControllers */,
 				60A8BEBE1AA8ECAC0042A733 /* Views */,
 				60A8BE961AA8AE180042A733 /* Resources */,
@@ -336,7 +336,6 @@
 				TargetAttributes = {
 					6070D3801A9118FB0048BA7C = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = E4VMS84N4M;
 					};
 					6070D39C1A9118FB0048BA7C = {
 						CreatedOnToolsVersion = 6.1.1;

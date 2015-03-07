@@ -19,6 +19,8 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UILabel *decisionPromptLabel;
 @property (nonatomic, weak) IBOutlet RatingView *ratingView;
+@property (nonatomic, weak) IBOutlet UILabel *decisionSentenceLabel;
+
 
 @property (nonatomic, strong) NSArray *whyData;
 @property (nonatomic, strong) NSArray *whatData;
@@ -31,6 +33,9 @@
 @end
 
 @implementation MinimalDecisionViewController
+
+
+#pragma mark - LifeCycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +53,7 @@
         [self.collectionView reloadData];
     }];
     
-    PFQuery *whatQuery = [PFQuery queryWithClassName:@"DecisionDetail"];
+    PFQuery *whatQuery = [PFQuery queryWithClassName:@"DecisionOutcome"];
     [whatQuery orderByAscending:@"sortIndex"];
     [whatQuery whereKey:@"type" equalTo:self.type];
     //    [whyQuery whereKey:@"type" containedIn:[DataManager sharedManager].decisionTypes];
@@ -56,20 +61,39 @@
         self.whatData = objects;
         [self.collectionView reloadData];
     }];
-    
+    [self updateSentence];
     // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.collectionView.contentInset = (UIEdgeInsets){0,0,75,0};
-    self.collectionView.scrollIndicatorInsets = (UIEdgeInsets){0,0,75,0};
-
+    self.collectionView.contentInset = (UIEdgeInsets){0.,0.,79.,0.,};
+    self.collectionView.scrollIndicatorInsets = (UIEdgeInsets){0.,0.,73.,0.};
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Helpers
+
+-(void)updateSentence{
+    
+    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
+    __block NSString *why;
+    __block NSString *what;
+    for (NSIndexPath * selectedItem in selectedItems) {
+        if (selectedItem.section) {
+            what = self.whatData[selectedItem.item][@"name"];
+        }else{
+            why = self.whyData[selectedItem.item][@"name"];
+        }
+    }
+
+    if (why && what) {
+        self.decisionSentenceLabel.text = [NSString stringWithFormat:@"Because of %@, I %@.", why, what];
+    }else self.decisionSentenceLabel.text = @"";
 }
 
 #pragma mark - IBActions
@@ -86,14 +110,12 @@
 
     for (NSIndexPath *indexPath in selectedItems) {
         if (indexPath.section) {
-            decision.detail = self.whatData[indexPath.item];
+            decision.outcome = self.whatData[indexPath.item];
         }else{
             decision.influence = self.whyData[indexPath.item];
 
         }
     }
-    
-    
 
     decision.user = [PFUser currentUser];
     decision.type = self.type;
@@ -143,15 +165,32 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
-
+    __block NSString *why;
+    __block NSString *what;
     for (NSIndexPath * selectedItem in selectedItems) {
-        if ((selectedItem.section == indexPath.section) && (selectedItem.row != indexPath.item)) {
+        
+        if ((selectedItem.section == indexPath.section) && (selectedItem.item != indexPath.item)) {
             [self.collectionView deselectItemAtIndexPath:selectedItem animated:NO];
         }
+        if (selectedItem.section) {
+            what = self.whatData[selectedItem.item][@"name"];
+        }else{
+            why = self.whyData[selectedItem.item][@"name"];
+        }
+        
     }
-
+    [self updateSentence];
 }
 
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
+
+    if ([selectedItems containsObject:indexPath]) {
+        return NO;
+    }
+
+    return YES;
+}
 
 #pragma mark - Delegate Flow Layout
 

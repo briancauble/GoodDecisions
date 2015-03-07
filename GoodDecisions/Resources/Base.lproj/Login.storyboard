@@ -164,7 +164,7 @@
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuY-16-7Ip">
-                                <rect key="frame" x="188" y="391" width="225" height="15"/>
+                                <rect key="frame" x="0.0" y="391" width="600" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Hio-g4-4fd"/>
                                 </constraints>
@@ -184,6 +184,7 @@
                             <constraint firstAttribute="centerX" secondItem="Xd8-UH-bLg" secondAttribute="centerX" id="ClS-zm-It6"/>
                             <constraint firstItem="t5I-pR-XSI" firstAttribute="top" secondItem="aQA-p8-3bj" secondAttribute="bottom" constant="8" id="FOZ-O1-91C"/>
                             <constraint firstItem="SuY-16-7Ip" firstAttribute="centerX" secondItem="t5I-pR-XSI" secondAttribute="centerX" id="H6r-ct-m3o"/>
+                            <constraint firstItem="SuY-16-7Ip" firstAttribute="leading" secondItem="zts-Rw-pZL" secondAttribute="leading" id="IyH-U3-sIz"/>
                             <constraint firstAttribute="centerX" secondItem="oQ8-aL-g2P" secondAttribute="centerX" id="Pei-96-STl"/>
                             <constraint firstItem="Xd8-UH-bLg" firstAttribute="top" secondItem="urW-98-Jal" secondAttribute="bottom" constant="35" id="U7i-gk-edx"/>
                             <constraint firstItem="oQ8-aL-g2P" firstAttribute="top" secondItem="rsH-qG-OBh" secondAttribute="bottom" constant="8" id="V4f-sY-zsF"/>
@@ -194,6 +195,7 @@
                             <constraint firstItem="t5I-pR-XSI" firstAttribute="height" secondItem="aQA-p8-3bj" secondAttribute="height" id="id9-VT-TCU"/>
                             <constraint firstItem="khQ-m4-bPU" firstAttribute="top" secondItem="oQ8-aL-g2P" secondAttribute="bottom" constant="20" id="jv7-Mh-vJq"/>
                             <constraint firstItem="t5I-pR-XSI" firstAttribute="width" secondItem="aQA-p8-3bj" secondAttribute="width" id="n2s-gn-Cif"/>
+                            <constraint firstAttribute="trailing" secondItem="SuY-16-7Ip" secondAttribute="trailing" id="nH4-QO-6IP"/>
                             <constraint firstItem="HYL-3p-tes" firstAttribute="top" secondItem="oQ8-aL-g2P" secondAttribute="bottom" constant="105" id="nfq-6N-x2R"/>
                             <constraint firstItem="Dlk-ll-ASd" firstAttribute="top" secondItem="HYL-3p-tes" secondAttribute="bottom" constant="100" id="uuu-qY-jul"/>
                             <constraint firstItem="SuY-16-7Ip" firstAttribute="width" secondItem="t5I-pR-XSI" secondAttribute="width" id="wK6-LW-f0c"/>
@@ -201,6 +203,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="wK6-LW-f0c"/>
                                 <exclude reference="nfq-6N-x2R"/>
                                 <exclude reference="uuu-qY-jul"/>
                             </mask>

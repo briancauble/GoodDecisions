@@ -51,7 +51,19 @@
                 [self performSegueWithIdentifier:@"SecondSetupScreen" sender:nil];
             }
             else{
-                self.errorLabel.text = error.userInfo[@"error"]?:@"An unknown error occured.";
+                if (error.code == 202) {
+                    [PFUser logInWithUsernameInBackground:self.user.username password:self.user.password block:^(PFUser *user, NSError *error) {
+                        if(!error){
+                            user.email = self.user.email;
+                            [user saveEventually];
+                            [self performSegueWithIdentifier:@"SecondSetupScreen" sender:nil];
+                        }else{
+                            self.errorLabel.text = [NSString stringWithFormat:@"Enter unique username or correct password for %@.",self.user.username];
+                        }
+                    }];
+                }else{
+                    self.errorLabel.text = error.userInfo[@"error"]?:@"An unknown error occured.";
+                }
             }
         }];
     }

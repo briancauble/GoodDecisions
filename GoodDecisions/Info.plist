@@ -22,6 +22,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We&apos;re stalkers.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ReenieBeanie.ttf</string>
@@ -42,8 +44,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>We want to send your location data to the NSA, please allow access to location services. </string>
-
 </dict>
 </plist>

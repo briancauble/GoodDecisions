@@ -13,7 +13,7 @@
 @property (nonatomic, strong) PFUser *user;
 @property (nonatomic, strong) DecisionType *type;
 @property (nonatomic, strong) PFObject *influence;
-@property (nonatomic, strong) PFObject *detail;
+@property (nonatomic, strong) PFObject *outcome;
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, strong) PFGeoPoint *location;
 
