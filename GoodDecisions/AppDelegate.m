@@ -22,11 +22,13 @@
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"cJOeBpOQkZVFFiDrtbtjmsgIt5CrVgfINqBPyBkh"
                   clientKey:@"Gut2htWGgdZRT5NTiwqkqVGynw8WmIETfgbGfKvk"];
-    [DataManager sharedManager];
     UILocalNotification *notification = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
     if (notification) {
         DDLogDebug(@"did launch with notification");
     }
+    [DataManager sharedManager];
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16.]} forState:UIControlStateNormal];
+
     return YES;
 }
 

@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1C34BB9A5BB9EFED06504787 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AE43E458FF6C3C76D31FD /* libPods.a */; };
+		602D657E1AB9381B000106B6 /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D657D1AB9381B000106B6 /* PieChartViewController.m */; };
+		602D65841AB95350000106B6 /* DecisionInfluence.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D65831AB95350000106B6 /* DecisionInfluence.m */; };
+		602D65871AB9535D000106B6 /* DecisionOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D65861AB9535D000106B6 /* DecisionOutcome.m */; };
 		6070D3871A9118FB0048BA7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3861A9118FB0048BA7C /* main.m */; };
 		6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3891A9118FB0048BA7C /* AppDelegate.m */; };
 		6070D3A41A9118FB0048BA7C /* GoodDecisionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3A31A9118FB0048BA7C /* GoodDecisionsTests.m */; };
+		607A14A21AADD4AD00736AA7 /* PFQuery+Local.m in Sources */ = {isa = PBXBuildFile; fileRef = 607A14A11AADD4AD00736AA7 /* PFQuery+Local.m */; };
 		60A8BE9F1AA8AE180042A733 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE971AA8AE180042A733 /* LaunchScreen.xib */; };
 		60A8BEA01AA8AE180042A733 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE991AA8AE180042A733 /* Login.storyboard */; };
 		60A8BEA11AA8AE180042A733 /* ReenieBeanie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE9C1AA8AE180042A733 /* ReenieBeanie.ttf */; };
@@ -33,6 +37,9 @@
 		60A8BEDE1AA9F6F90042A733 /* WhyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */; };
 		60A8BEE41AA9F8C00042A733 /* MinimalDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */; };
 		60A8BEE71AAA1A090042A733 /* DecisionHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */; };
+		60CF10B01AB9110D00B95CD2 /* HistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CF10AF1AB9110D00B95CD2 /* HistoryListViewController.m */; };
+		60CF10B31AB9169300B95CD2 /* HistoryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CF10B21AB9169300B95CD2 /* HistoryListTableViewCell.m */; };
+		60E46B2F1AAB4EFF0029DE09 /* DetailedLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E46B2E1AAB4EFF0029DE09 /* DetailedLogFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		398AE43E458FF6C3C76D31FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		602D657C1AB9381B000106B6 /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController.h; sourceTree = "<group>"; };
+		602D657D1AB9381B000106B6 /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController.m; sourceTree = "<group>"; };
+		602D65821AB95350000106B6 /* DecisionInfluence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionInfluence.h; sourceTree = "<group>"; };
+		602D65831AB95350000106B6 /* DecisionInfluence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionInfluence.m; sourceTree = "<group>"; };
+		602D65851AB9535D000106B6 /* DecisionOutcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionOutcome.h; sourceTree = "<group>"; };
+		602D65861AB9535D000106B6 /* DecisionOutcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionOutcome.m; sourceTree = "<group>"; };
 		6070D3811A9118FB0048BA7C /* GoodDecisions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDecisions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3851A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3861A9118FB0048BA7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,6 +68,8 @@
 		6070D39D1A9118FB0048BA7C /* GoodDecisionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoodDecisionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3A21A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3A31A9118FB0048BA7C /* GoodDecisionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodDecisionsTests.m; sourceTree = "<group>"; };
+		607A14A01AADD4AD00736AA7 /* PFQuery+Local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFQuery+Local.h"; sourceTree = "<group>"; };
+		607A14A11AADD4AD00736AA7 /* PFQuery+Local.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFQuery+Local.m"; sourceTree = "<group>"; };
 		60A8BE981AA8AE180042A733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		60A8BE9A1AA8AE180042A733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		60A8BE9C1AA8AE180042A733 /* ReenieBeanie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ReenieBeanie.ttf; sourceTree = "<group>"; };
@@ -94,6 +109,12 @@
 		60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinimalDecisionViewController.m; sourceTree = "<group>"; };
 		60A8BEE51AAA1A080042A733 /* DecisionHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionHeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		60CF10AE1AB9110D00B95CD2 /* HistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListViewController.h; sourceTree = "<group>"; };
+		60CF10AF1AB9110D00B95CD2 /* HistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListViewController.m; sourceTree = "<group>"; };
+		60CF10B11AB9169300B95CD2 /* HistoryListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListTableViewCell.h; sourceTree = "<group>"; };
+		60CF10B21AB9169300B95CD2 /* HistoryListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListTableViewCell.m; sourceTree = "<group>"; };
+		60E46B2D1AAB4EFF0029DE09 /* DetailedLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedLogFormatter.h; sourceTree = "<group>"; };
+		60E46B2E1AAB4EFF0029DE09 /* DetailedLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedLogFormatter.m; sourceTree = "<group>"; };
 		95275A69B090381D3B540D9E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B66C0B8BF41B2E4226B6964D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +237,10 @@
 				60A8BEA61AA8AE220042A733 /* DecisionViewController.m */,
 				60A8BEE21AA9F8C00042A733 /* MinimalDecisionViewController.h */,
 				60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */,
+				60CF10AE1AB9110D00B95CD2 /* HistoryListViewController.h */,
+				60CF10AF1AB9110D00B95CD2 /* HistoryListViewController.m */,
+				602D657C1AB9381B000106B6 /* PieChartViewController.h */,
+				602D657D1AB9381B000106B6 /* PieChartViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -225,6 +250,10 @@
 			children = (
 				60A8BEAC1AA8B3130042A733 /* UIView+Constraints.h */,
 				60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */,
+				60E46B2D1AAB4EFF0029DE09 /* DetailedLogFormatter.h */,
+				60E46B2E1AAB4EFF0029DE09 /* DetailedLogFormatter.m */,
+				607A14A01AADD4AD00736AA7 /* PFQuery+Local.h */,
+				607A14A11AADD4AD00736AA7 /* PFQuery+Local.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -255,6 +284,10 @@
 				60A8BECF1AA903340042A733 /* Habit.m */,
 				60A8BED11AA905360042A733 /* Reminder.h */,
 				60A8BED21AA905360042A733 /* Reminder.m */,
+				602D65821AB95350000106B6 /* DecisionInfluence.h */,
+				602D65831AB95350000106B6 /* DecisionInfluence.m */,
+				602D65851AB9535D000106B6 /* DecisionOutcome.h */,
+				602D65861AB9535D000106B6 /* DecisionOutcome.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -273,6 +306,8 @@
 				60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */,
 				60A8BEE51AAA1A080042A733 /* DecisionHeaderCollectionReusableView.h */,
 				60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */,
+				60CF10B11AB9169300B95CD2 /* HistoryListTableViewCell.h */,
+				60CF10B21AB9169300B95CD2 /* HistoryListTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,7 +462,10 @@
 				60A8BEDE1AA9F6F90042A733 /* WhyCollectionViewCell.m in Sources */,
 				60A8BEE71AAA1A090042A733 /* DecisionHeaderCollectionReusableView.m in Sources */,
 				60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */,
+				607A14A21AADD4AD00736AA7 /* PFQuery+Local.m in Sources */,
+				60CF10B01AB9110D00B95CD2 /* HistoryListViewController.m in Sources */,
 				60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */,
+				60E46B2F1AAB4EFF0029DE09 /* DetailedLogFormatter.m in Sources */,
 				60A8BED81AA9A00C0042A733 /* RatingView.m in Sources */,
 				60A8BECD1AA900D30042A733 /* DecisionType.m in Sources */,
 				60A8BEB91AA8E5200042A733 /* SetupRemindersViewController.m in Sources */,
@@ -436,6 +474,10 @@
 				6070D3871A9118FB0048BA7C /* main.m in Sources */,
 				60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */,
 				60A8BECA1AA8FFFC0042A733 /* Decision.m in Sources */,
+				60CF10B31AB9169300B95CD2 /* HistoryListTableViewCell.m in Sources */,
+				602D65871AB9535D000106B6 /* DecisionOutcome.m in Sources */,
+				602D657E1AB9381B000106B6 /* PieChartViewController.m in Sources */,
+				602D65841AB95350000106B6 /* DecisionInfluence.m in Sources */,
 				60A8BEDB1AA9E7180042A733 /* TintedBackgroundImageButton.m in Sources */,
 				60A8BEE41AA9F8C00042A733 /* MinimalDecisionViewController.m in Sources */,
 				60A8BED31AA905360042A733 /* Reminder.m in Sources */,

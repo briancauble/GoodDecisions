@@ -15,8 +15,12 @@
 
 
 + (instancetype) sharedManager;
++ (NSDateFormatter *) sharedDateFormatter;
+
 - (void)addHabit:(Habit *)habit;
 - (void)removeHabit:(Habit *)habit;
 - (void)clearAllHabits;
+
+
 
 @end

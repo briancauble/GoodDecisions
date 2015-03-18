@@ -7,6 +7,8 @@
 //
 
 #import "Decision.h"
+#import "PFQuery+Local.h"
+
 
 @implementation Decision
 
@@ -21,4 +23,21 @@
 + (NSString *)parseClassName {
     return @"Decision";
 }
+
++(void)findAllDecisionsWithResult:(PFArrayResultBlock)result{
+    PFQuery *query = [Decision query];
+    [query orderByAscending:@"createdAt"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    query.limit = 200;
+    [query updateLocalDataStore];
+    [query includeKey:@"influence"];
+    [query includeKey:@"outcome"];
+    [query findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            DDLogError(@"%@", [error userInfo][@"error"]);
+        }
+        
+        result?result(objects, error):nil;
+        
+    }];}
 @end

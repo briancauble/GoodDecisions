@@ -35,4 +35,20 @@
     }
     self.selectedValue = sender.tag;
 }
+
+-(void)setRating:(NSInteger)score{
+    
+    for (UIButton *button in self.buttonCollection) {
+        if ((score <= button.tag && button.tag <0) || (0 < button.tag && button.tag <= score) ) {
+            button.selected = YES;
+            button.hidden = NO;
+        }else{
+            button.hidden = YES;
+            button.selected = NO;
+        }
+        button.tintColor = self.tintColor;
+    }
+    self.selectedValue = score;
+    
+}
 @end

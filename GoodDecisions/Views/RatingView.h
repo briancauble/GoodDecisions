@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface RatingView : UIView
+
 @property (nonatomic, assign) NSInteger selectedValue;
+
+
+-(void)setRating:(NSInteger)score;
+
 @end

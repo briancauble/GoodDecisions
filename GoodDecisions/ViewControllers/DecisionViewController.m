@@ -8,6 +8,8 @@
 
 #import "DecisionViewController.h"
 #import "UIView+Constraints.h"
+#import "MinimalDecisionViewController.h"
+#import "DataManager.h"
 
 @interface DecisionViewController ()
 @property (nonatomic, strong) UIViewController *setupVC;
@@ -68,16 +70,18 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if([segue.identifier isEqualToString:@"minimalDecisionViewSegue"]){
-//        UIViewController *destVC = segue.destinationViewController;
-//        destVC.modalPresentationStyle = UIModalPresentationCustom;
-//    }
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"minimalDecisionViewSegue"]){
+        MinimalDecisionViewController *destVC = segue.destinationViewController;
+        destVC.type = [DataManager sharedManager].decisionTypes[0];
+    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
 
 
-
+- (IBAction)unwindToMainViewController:(UIStoryboardSegue *)unwindSegue{
+    
+}
 
 @end

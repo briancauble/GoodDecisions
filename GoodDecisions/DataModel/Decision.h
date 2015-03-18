@@ -7,16 +7,21 @@
 //
 
 #import "DecisionType.h"
+#import "DecisionOutcome.h"
+#import "DecisionInfluence.h"
 
 
 @interface Decision : PFObject <PFSubclassing>
 @property (nonatomic, strong) PFUser *user;
 @property (nonatomic, strong) DecisionType *type;
-@property (nonatomic, strong) PFObject *influence;
-@property (nonatomic, strong) PFObject *outcome;
+@property (nonatomic, strong) DecisionInfluence *influence;
+@property (nonatomic, strong) DecisionOutcome *outcome;
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, strong) PFGeoPoint *location;
 
 + (NSString *)parseClassName;
+
++ (void) findAllDecisionsWithResult:(PFArrayResultBlock)result;
+
 
 @end

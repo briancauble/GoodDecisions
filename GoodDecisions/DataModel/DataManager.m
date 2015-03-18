@@ -9,6 +9,7 @@
 #import "DataManager.h"
 #import "Habit.h"
 #import "DecisionType.h"
+#import "PFQuery+Local.h"
 
 
 @interface DataManager ()
@@ -21,11 +22,11 @@
 
 - (id)init {
     if (self = [super init]) {
-//        for now just get the Food type
-        [[DecisionType query] getObjectInBackgroundWithId:@"QEUzoJRlNC" block:^(PFObject *object, NSError *error) {
-            _decisionTypes = @[object];
+        [DecisionType findAllDecisionTypesWithResult:^(NSArray *objects, NSError *error) {
+            if(!error)
+                _decisionTypes = objects;
         }];
-        
+          
         [self configureNotificationCategories];
 
     }
@@ -43,6 +44,24 @@
 }
 
 
++ (NSDateFormatter *) sharedDateFormatter{
+    static dispatch_once_t onceToken;
+    static NSDateFormatter *_sharedDateFormatter;
+    dispatch_once(&onceToken, ^{
+        _sharedDateFormatter = [[NSDateFormatter alloc] init];
+        _sharedDateFormatter.timeStyle = NSDateFormatterShortStyle;
+        _sharedDateFormatter.dateStyle = NSDateFormatterFullStyle;
+        _sharedDateFormatter.timeZone = [NSTimeZone systemTimeZone];
+    });
+    
+    return _sharedDateFormatter;
+}
+
+#pragma mark - Data Requests
+
+
+
+#pragma mark - Habits and Reminders
 -(void)clearAllHabits{
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [PFUser currentUser][@"habits"] = @[];
@@ -127,4 +146,6 @@
     
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
 }
+
+
 @end

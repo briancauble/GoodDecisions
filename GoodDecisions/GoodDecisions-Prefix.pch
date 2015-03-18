@@ -22,18 +22,16 @@
 #import <Foundation/Foundation.h>
 #endif
 
-#import "DDLog.h"
-#import "DDASLLogger.h"
-#import "DDTTYLogger.h"
-#import "DDFileLogger.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import <Parse/Parse.h>
 
 
 
 #ifdef DEBUG
-static const int ddLogLevel = LOG_LEVEL_DEBUG;
+static const DDLogLevel ddLogLevel = DDLogLevelAll;
+#pragma message  ("DEBUG")
 #else
-static const int ddLogLevel = LOG_LEVEL_INFO;
+static const DDLogLevel ddLogLevel = DDLogLevelInfo;
 #endif
 
 

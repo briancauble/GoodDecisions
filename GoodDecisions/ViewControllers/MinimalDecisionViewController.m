@@ -13,6 +13,8 @@
 #import "DecisionHeaderCollectionReusableView.h"
 #import "Decision.h"
 #import "RatingView.h"
+#import "Decision.h"
+#import "PFQuery+Local.h"
 
 @interface MinimalDecisionViewController ()
 
@@ -39,28 +41,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if(!self.type){
-        self.type = [DecisionType objectWithoutDataWithObjectId:@"QEUzoJRlNC"];
-    }
+    //this entire if-statement is for testing only.
+    
     [self.type fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
-    }];
-    PFQuery *whyQuery = [PFQuery queryWithClassName:@"DecisionInfluence"];
-    [whyQuery orderByAscending:@"sortIndex"];
-    [whyQuery whereKey:@"type" equalTo:self.type];
-    [whyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.whyData = objects;
-        [self.collectionView reloadData];
+        if (!error) {
+            self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
+        }else {
+            DDLogError(@"%@", [error userInfo][@"error"]);
+        }
     }];
     
-    PFQuery *whatQuery = [PFQuery queryWithClassName:@"DecisionOutcome"];
-    [whatQuery orderByAscending:@"sortIndex"];
-    [whatQuery whereKey:@"type" equalTo:self.type];
-    //    [whyQuery whereKey:@"type" containedIn:[DataManager sharedManager].decisionTypes];
-    [whatQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.whatData = objects;
-        [self.collectionView reloadData];
+    
+    [self.type findAllInfluencesWithResult:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.whyData = objects;
+            [self.collectionView reloadData];
+        }
     }];
+
+    [self.type findAllOutcomesWithResult:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.whatData = objects;
+            [self.collectionView reloadData];
+        }
+    }];
+        
+
     [self updateSentence];
     // Do any additional setup after loading the view.
 }
@@ -85,9 +91,9 @@
     __block NSString *what;
     for (NSIndexPath * selectedItem in selectedItems) {
         if (selectedItem.section) {
-            what = self.whatData[selectedItem.item][@"name"];
+            what = [self.whatData[selectedItem.item] name];
         }else{
-            why = self.whyData[selectedItem.item][@"name"];
+            why = [self.whyData[selectedItem.item] name];
         }
     }
 
@@ -122,10 +128,14 @@
     decision.score = @(self.ratingView.selectedValue);
     [decision saveEventually];
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-        decision.location = geoPoint;
-        [decision saveEventually];
+        if (!error) {
+            decision.location = geoPoint;
+            [decision saveEventually];
+        }else {
+            DDLogWarn(@"%@", [error userInfo][@"error"]);
+        }
     }];
-
+    [[Decision query] updateLocalDataStore];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -173,9 +183,9 @@
             [self.collectionView deselectItemAtIndexPath:selectedItem animated:NO];
         }
         if (selectedItem.section) {
-            what = self.whatData[selectedItem.item][@"name"];
+            what = [self.whatData[selectedItem.item] name];
         }else{
-            why = self.whyData[selectedItem.item][@"name"];
+            why = [self.whyData[selectedItem.item] name];
         }
         
     }

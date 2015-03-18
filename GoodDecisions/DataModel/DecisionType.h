@@ -11,7 +11,15 @@
 @interface DecisionType : PFObject <PFSubclassing>
 
 @property (nonatomic, strong) NSString *defaultReminderPrompt;
+@property (nonatomic, strong) NSString *name;
+
+
 + (NSString *) parseClassName;
 + (UILocalNotification *) notification;
+
++ (void) findAllDecisionTypesWithResult:(PFArrayResultBlock)result;
+
+- (void) findAllInfluencesWithResult:(PFArrayResultBlock)result;
+- (void) findAllOutcomesWithResult:(PFArrayResultBlock)result;
 
 @end

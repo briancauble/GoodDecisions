@@ -1,20 +1,26 @@
 PODS:
   - Bolts (1.1.4)
-  - CocoaLumberjack (1.9.2):
-    - CocoaLumberjack/Extensions (= 1.9.2)
-  - CocoaLumberjack/Core (1.9.2)
-  - CocoaLumberjack/Extensions (1.9.2):
+  - CocoaLumberjack (2.0.0-rc2):
+    - CocoaLumberjack/Default (= 2.0.0-rc2)
+    - CocoaLumberjack/Extensions (= 2.0.0-rc2)
+  - CocoaLumberjack/Core (2.0.0-rc2)
+  - CocoaLumberjack/Default (2.0.0-rc2):
     - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0-rc2):
+    - CocoaLumberjack/Default
+  - CorePlot (1.5.1)
   - Parse (1.6.4):
     - Bolts (~> 1.1)
 
 DEPENDENCIES:
-  - CocoaLumberjack
+  - CocoaLumberjack (~> 2.0.0-rc2)
+  - coreplot
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
-  CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
+  CocoaLumberjack: 6027cd9a0665203a7df456c526e137f02cd547e1
+  CorePlot: b15cb1a9a687b9576545104248d6e22033e678bb
   Parse: c2610f7a12ad0defc974803b819c4efe7746e6db
 
 COCOAPODS: 0.35.0
