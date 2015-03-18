@@ -78,7 +78,7 @@
         self.pieChart.dataSource = self;
         self.pieChart.delegate = self;
         self.pieChart.pieRadius = (self.hostView.bounds.size.width * 0.8) / 2;
-        self.pieChart.pieInnerRadius = (self.hostView.bounds.size.width * 0.6) / 2;
+        self.pieChart.pieInnerRadius = (self.hostView.bounds.size.width * 0.55) / 2;
 
 //        self.pieChart.identifier = graph.title;
         self.pieChart.attributedTitle = [[NSAttributedString alloc] initWithString:@"test"];
@@ -108,7 +108,7 @@
         theLegend.numberOfColumns = 2;
         theLegend.equalRows = @YES;
         theLegend.rowMargin = 5.;
-        theLegend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
+        theLegend.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:1. green:1. blue:1. alpha:.5]];
         theLegend.borderLineStyle = nil;
         theLegend.cornerRadius = 5.0;
         // 4 - Add legend to graph
@@ -269,7 +269,7 @@
         }else{
             [attributedString addAttribute:NSForegroundColorAttributeName value:[CPTColor brownColor].uiColor range:NSMakeRange(0, [attributedString length])];
         }
-        [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.] range:NSMakeRange(0, [attributedString length])];
+        [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15.] range:NSMakeRange(0, [attributedString length])];
         return attributedString;
     }
     
@@ -279,7 +279,7 @@
 -(CGFloat)radialOffsetForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx{
 
     if (idx == self.selectedIndex) {
-        return 9.0;
+        return 12.0;
     }
 
     return 3.0;
@@ -292,7 +292,7 @@
 -(CPTColor *)colorForIndex:(NSUInteger)idx{
     NSArray *array = self.pieData[idx];
     CGFloat offset = (float)array.count/(float)self.decisionData.count;
-    CGFloat alphaValue = offset+((float)idx/15);
+    CGFloat alphaValue = offset+((self.pieData.count -(float)idx)/15);
     
     if ([self.pieKeys[idx] isKindOfClass:NSNumber.class]) {
         
