@@ -18,40 +18,44 @@
     PFQuery *queryCopy = [self copy]; //use a copy to avoid conflicts
     
     __block BOOL success = NO;
-    __block NSError *blockError = nil;
     [queryCopy findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //if data is removed from the backend the local pin doens't seem to be removed, so we're attempting to fix that here.
-            [queryCopy findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *localObjects, NSError *error) {
-                if(!error){
-                    if([localObjects count] != [objects count]){ //refresh the pinned objects
-                        [PFObject unpinAllInBackground:localObjects block:^(BOOL succeeded, NSError *error) {
-                            if(succeeded){
-                                [PFObject pinAllInBackground:objects];
-                                success = YES;
-                                result?result(success, blockError):nil;
-                            }else{
-                                DDLogWarn(@"%@", [error userInfo][@"error"]);
-                                blockError = error;
-                                result?result(success, blockError):nil;
+            [PFObject pinAllInBackground:objects block:^(BOOL succeeded, NSError *error) {
+                if(succeeded){
+                    [queryCopy findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *localObjects, NSError *error) {
+                        if(!error){
+                            NSMutableSet *localSet = [NSMutableSet setWithArray:localObjects];
+                            NSSet *remoteSet = [NSSet setWithArray:objects];
+                            [localSet minusSet:remoteSet];
+
+                            if([localSet count]){
+                                DDLogDebug(@"extra local object !");
+                                [localSet enumerateObjectsUsingBlock:^(PFObject *obj, BOOL *stop) {
+                                    if ([obj.objectId isEqualToString:@"new"]) {
+                                        DDLogDebug(@"extra local object has not saved yet - not deleting");
+                                    }else{
+                                        DDLogDebug(@"unpinning object %@", obj);
+                                        //unpinning seems broken.
+                                        [obj unpinInBackground];
+                                    }
+                                }];
                             }
-                        }];
-                    }else{
-                        [PFObject pinAllInBackground:objects];
-                        success = YES;
-                        result?result(success, blockError):nil;
-                    }
-                    
+                            result?result(YES, error):nil;
+
+                        }else{
+                            DDLogWarn(@"%@", [error userInfo][@"error"]);
+                            result?result(success, error):nil;
+                        }
+                    }];
                 }else{
                     DDLogWarn(@"%@", [error userInfo][@"error"]);
-                    blockError = error;
-                    result?result(success, blockError):nil;
+                    result?result(success, error):nil;
                 }
             }];
         }else{
             DDLogWarn(@"%@", [error userInfo][@"error"]);
-            blockError = error;
-            result?result(success, blockError):nil;
+            result?result(success, error):nil;
         }
     }];
     
@@ -73,4 +77,52 @@
     }];
 }
 
+-(void)findAndPinObjectsInBackgroundWithBlock:(PFArrayResultBlock)block{
+    PFQuery *queryCopy = [self copy]; //use a copy to avoid conflicts
+
+    [queryCopy findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            block?block(objects, error):nil;
+        }else{
+            DDLogWarn(@"%@", [error userInfo][@"error"]);
+        }
+    }];
+    
+    [queryCopy findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            block?block(objects, error):nil;
+
+            //if data is removed from the backend the local pin doens't seem to be removed, so we're attempting to fix that here.
+            [PFObject pinAllInBackground:objects block:^(BOOL succeeded, NSError *error) {
+                if(succeeded){
+                    [queryCopy findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *localObjects, NSError *error) {
+                        if(!error){
+                            NSMutableSet *localSet = [NSMutableSet setWithArray:localObjects];
+                            NSSet *remoteSet = [NSSet setWithArray:objects];
+                            [localSet minusSet:remoteSet];
+                            
+                            if([localSet count]){
+                                DDLogDebug(@"extra local object !");
+                                [localSet enumerateObjectsUsingBlock:^(PFObject *obj, BOOL *stop) {
+                                    if ([obj.objectId isEqualToString:@"new"]) {
+                                        DDLogDebug(@"extra local object has not saved yet - not deleting");
+                                    }else{
+                                        [obj unpinInBackground];
+                                    }
+                                }];
+                            }
+                        }else{
+                            DDLogWarn(@"%@", [error userInfo][@"error"]);
+                        }
+                    }];
+                }else{
+                    DDLogWarn(@"%@", [error userInfo][@"error"]);
+                }
+            }];
+            
+        }else{
+            DDLogWarn(@"%@", [error userInfo][@"error"]);
+        }
+    }];
+}
 @end

@@ -59,6 +59,7 @@
         }
     }];
 
+    
     [self.type findAllOutcomesWithResult:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.whatData = objects;
@@ -126,16 +127,14 @@
     decision.user = [PFUser currentUser];
     decision.type = self.type;
     decision.score = @(self.ratingView.selectedValue);
-    [decision saveEventually];
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
         if (!error) {
             decision.location = geoPoint;
-            [decision saveEventually];
         }else {
-            DDLogWarn(@"%@", [error userInfo][@"error"]);
+            DDLogWarn(@"%@", error.description);
         }
+        [decision saveEventually];
     }];
-    [[Decision query] updateLocalDataStore];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

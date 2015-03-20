@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="loP-sH-JYw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="loP-sH-JYw">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ReenieBeanie.ttf">
@@ -111,6 +111,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYL-3p-tes">
                                 <rect key="frame" x="273" y="413" width="55" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="Ko6-GP-1U4"/>
+                                    <constraint firstAttribute="height" constant="24" id="tUg-kX-xSw"/>
+                                </constraints>
                                 <state key="normal" image="next_arrow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -186,7 +190,6 @@
                             <constraint firstItem="SuY-16-7Ip" firstAttribute="centerX" secondItem="t5I-pR-XSI" secondAttribute="centerX" id="H6r-ct-m3o"/>
                             <constraint firstItem="SuY-16-7Ip" firstAttribute="leading" secondItem="zts-Rw-pZL" secondAttribute="leading" id="IyH-U3-sIz"/>
                             <constraint firstAttribute="centerX" secondItem="oQ8-aL-g2P" secondAttribute="centerX" id="Pei-96-STl"/>
-                            <constraint firstItem="Xd8-UH-bLg" firstAttribute="top" secondItem="urW-98-Jal" secondAttribute="bottom" constant="35" id="U7i-gk-edx"/>
                             <constraint firstItem="oQ8-aL-g2P" firstAttribute="top" secondItem="rsH-qG-OBh" secondAttribute="bottom" constant="8" id="V4f-sY-zsF"/>
                             <constraint firstItem="aQA-p8-3bj" firstAttribute="height" secondItem="khQ-m4-bPU" secondAttribute="height" id="X2M-tb-gZY"/>
                             <constraint firstItem="aQA-p8-3bj" firstAttribute="width" secondItem="khQ-m4-bPU" secondAttribute="width" id="XFJ-j4-cXl"/>
@@ -196,22 +199,20 @@
                             <constraint firstItem="khQ-m4-bPU" firstAttribute="top" secondItem="oQ8-aL-g2P" secondAttribute="bottom" constant="20" id="jv7-Mh-vJq"/>
                             <constraint firstItem="t5I-pR-XSI" firstAttribute="width" secondItem="aQA-p8-3bj" secondAttribute="width" id="n2s-gn-Cif"/>
                             <constraint firstAttribute="trailing" secondItem="SuY-16-7Ip" secondAttribute="trailing" id="nH4-QO-6IP"/>
-                            <constraint firstItem="HYL-3p-tes" firstAttribute="top" secondItem="oQ8-aL-g2P" secondAttribute="bottom" constant="105" id="nfq-6N-x2R"/>
-                            <constraint firstItem="Dlk-ll-ASd" firstAttribute="top" secondItem="HYL-3p-tes" secondAttribute="bottom" constant="100" id="uuu-qY-jul"/>
+                            <constraint firstItem="Xd8-UH-bLg" firstAttribute="top" secondItem="urW-98-Jal" secondAttribute="bottom" priority="500" constant="35" id="tIM-Hw-Hia"/>
                             <constraint firstItem="SuY-16-7Ip" firstAttribute="width" secondItem="t5I-pR-XSI" secondAttribute="width" id="wK6-LW-f0c"/>
                             <constraint firstItem="SuY-16-7Ip" firstAttribute="top" secondItem="t5I-pR-XSI" secondAttribute="bottom" id="za6-Ti-d9f"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="wK6-LW-f0c"/>
-                                <exclude reference="nfq-6N-x2R"/>
-                                <exclude reference="uuu-qY-jul"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Hx9-EV-uCl"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="bottomView" destination="HYL-3p-tes" id="fPw-ra-73y"/>
                         <outlet property="email" destination="aQA-p8-3bj" id="JJ5-fi-sZY"/>
                         <outlet property="errorLabel" destination="SuY-16-7Ip" id="N3z-2h-4AT"/>
                         <outlet property="password" destination="t5I-pR-XSI" id="ryD-Pb-2JP"/>

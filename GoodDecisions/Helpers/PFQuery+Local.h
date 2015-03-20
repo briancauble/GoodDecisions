@@ -15,4 +15,6 @@
 -(BFTask *)findObjectsFromLocalDatastoreInBackground;
 -(void)findObjectsFromLocalDatastoreInBackgroundWithBlock:(PFArrayResultBlock)block;
 
+-(void)findAndPinObjectsInBackgroundWithBlock:(PFArrayResultBlock)block;
+
 @end

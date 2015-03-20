@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "MinimalDecisionViewController.h"
 #import "UIView+Constraints.h"
+#import "DetailedLogFormatter.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [DDTTYLogger sharedInstance].logFormatter = [[DetailedLogFormatter alloc] init];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"cJOeBpOQkZVFFiDrtbtjmsgIt5CrVgfINqBPyBkh"
                   clientKey:@"Gut2htWGgdZRT5NTiwqkqVGynw8WmIETfgbGfKvk"];

@@ -31,13 +31,11 @@
     query.limit = 200;
     [query includeKey:@"influence"];
     [query includeKey:@"outcome"];
-    [query updateLocalDataStore];
-    [query findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            DDLogError(@"%@", [error userInfo][@"error"]);
+    [query findAndPinObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            result?result(objects, error):nil;
         }
-        
-        result?result(objects, error):nil;
-        
-    }];}
+    }];
+    
+}
 @end

@@ -22,18 +22,18 @@
 }
 
 
-- (BOOL) isEqual:(id)object{
-    
-    if ([object isKindOfClass:[PFObject class]]){
-        PFObject* pfObject = object;
-        DDLogDebug(@"%@! %@:%@", [self.objectId isEqualToString:pfObject.objectId]?@"YES":@"NO", self.objectId, pfObject.objectId);
-        return [self.objectId isEqualToString:pfObject.objectId];
-    }
-    
-    return NO;
-}
-
-- (NSUInteger) hash{
-    return self.objectId.hash;
-}
+//- (BOOL) isEqual:(id)object{
+//    
+//    if ([object isKindOfClass:[PFObject class]]){
+//        PFObject* pfObject = object;
+//        DDLogDebug(@"%@! %@:%@", [self.objectId isEqualToString:pfObject.objectId]?@"YES":@"NO", self.objectId, pfObject.objectId);
+//        return [self.objectId isEqualToString:pfObject.objectId];
+//    }
+//    
+//    return NO;
+//}
+//
+//- (NSUInteger) hash{
+//    return self.objectId.hash;
+//}
 @end
