@@ -26,12 +26,12 @@
 
 +(void)findAllDecisionsWithResult:(PFArrayResultBlock)result{
     PFQuery *query = [Decision query];
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     query.limit = 200;
-    [query updateLocalDataStore];
     [query includeKey:@"influence"];
     [query includeKey:@"outcome"];
+    [query updateLocalDataStore];
     [query findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             DDLogError(@"%@", [error userInfo][@"error"]);

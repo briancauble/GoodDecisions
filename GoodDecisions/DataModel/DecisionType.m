@@ -30,20 +30,47 @@
     return localNotification;
 }
 
++(PFQuery *)query{
+    return [[PFQuery queryWithClassName:@"DecisionType"] orderByAscending:@"sortIndex"];
+}
+
 +(void)findAllDecisionTypesWithResult:(PFArrayResultBlock)result{
     
     PFQuery *query = [DecisionType query];
-    [query orderByAscending:@"sortIndex"];
-    //check network first (10 second timeout)
-    [query updateLocalDataStoreWithResult:^(BOOL succeeded, NSError *error) {
-        //whether it succeeds or fails, grab data from local
-            [query findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if (error) {
-                    DDLogError(@"%@", [error userInfo][@"error"]);
-                }
-                result?result(objects, error):nil;
-            }];
-     }];
+    //check local first
+    PFQuery *networkQuery = [query copy];
+    [query updateLocalDataStore];
+
+
+    [query findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            DDLogError(@"%@", [error userInfo][@"error"]);
+        }
+        result?result(objects, error):nil;
+    }];
+    
+    
+    [networkQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            DDLogError(@"%@", [error userInfo][@"error"]);
+        }
+        result?result(objects, error):nil;
+    }];
+    
+//    //check remote and also return
+//    [query updateLocalDataStoreWithResult:^(BOOL succeeded, NSError *error) {
+//        
+//        [query findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//            if (error) {
+//                DDLogError(@"%@", [error userInfo][@"error"]);
+//            }
+//            result?result(objects, error):nil;
+//        }];
+//
+//        if (error) {
+//            DDLogError(@"%@", [error userInfo][@"error"]);
+//        }
+//     }];
 }
 
 -(void)findAllInfluencesWithResult:(PFArrayResultBlock)result{

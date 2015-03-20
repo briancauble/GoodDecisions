@@ -33,92 +33,18 @@
 
     self.graphByOptionStrings = @[@"influence", @"outcome", @"score"];
     self.graphBy =self.graphByOptionStrings[self.segmentControl.selectedSegmentIndex];
-    for (int i =0; i < self.graphByOptionStrings.count; i++) {
-        [self.segmentControl setTitle:self.graphByOptionStrings[i] forSegmentAtIndex:i];
-    }
-    [self.segmentControl setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [self.segmentControl setBackgroundImage:[UIImage imageNamed:@"rectangle"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    [self.segmentControl setDividerImage:[[UIImage alloc] init]
-                forLeftSegmentState:UIControlStateNormal
-                  rightSegmentState:UIControlStateNormal
-                         barMetrics:UIBarMetricsDefault];
     
     [Decision findAllDecisionsWithResult:^(NSArray *objects, NSError *error) {
+        
+        if(!error && [objects count])
         self.decisionData = objects;
+        [self configureGraph];
         
-        [self pieDataForGroupBy:self.graphBy];
-
-        
-        // 1 - Create and initialize graph
-        CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-        
-        self.hostView.hostedGraph = graph;
-        //    graph.paddingLeft = 0.0f;
-//            graph.paddingTop = 0.0f;
-        //    graph.paddingRight = 0.0f;
-        //    graph.paddingBottom = 0.0f;
-        graph.axisSet = nil;
-        
-        // 2 - Set up text style
-//        CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-//        textStyle.color = [CPTColor brownColor];
-//        textStyle.fontName = @"Helvetica-Bold";
-//        textStyle.fontSize = 13.0f;
-        // 3 - Configure title
-//        NSString *title = [[[DataManager sharedManager].decisionTypes[0] name] capitalizedString];
-//        graph.title = title;
-//        graph.titleTextStyle = textStyle;
-        // 4 - Set theme
-//        [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
-        // Do any additional setup after loading the view.
-        // 1 - Get reference to graph
-        //    CPTGraph *graph = self.hostView.hostedGraph;
-        // 2 - Create chart
-        self.pieChart = [[CPTPieChart alloc] init];
-        self.pieChart.dataSource = self;
-        self.pieChart.delegate = self;
-        self.pieChart.pieRadius = (self.hostView.bounds.size.width * 0.8) / 2;
-        self.pieChart.pieInnerRadius = (self.hostView.bounds.size.width * 0.55) / 2;
-
-//        self.pieChart.identifier = graph.title;
-        self.pieChart.attributedTitle = [[NSAttributedString alloc] initWithString:@"test"];
-        self.pieChart.startAngle = M_PI_4;
-        self.pieChart.sliceDirection = CPTPieDirectionClockwise;
-        
-//        self.pieChart.labelRotationRelativeToRadius = YES;
-//        CPTMutableLineStyle *line=[CPTMutableLineStyle lineStyle];
-//        line.lineColor=[CPTColor whiteColor];
-//        line.lineWidth = 3.;
-//        self.pieChart.borderLineStyle=line;
-//
-        self.pieChart.labelOffset = 0;
-        self.pieChart.centerAnchor = CGPointMake(0.5, 0.68);
-//        // 3 - Create gradient
-//        CPTGradient *overlayGradient = [[CPTGradient alloc] init];
-//        overlayGradient.gradientType = CPTGradientTypeRadial;
-//        overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.0] atPosition:0.9];
-//        overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.4] atPosition:1.0];
-//        self.pieChart.overlayFill = [CPTFill fillWithGradient:overlayGradient];
-        // 4 - Add chart to graph
-        [graph addPlot:self.pieChart];
-        
-        CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];
-        theLegend.delegate = self;
-        // 3 - Configure legend
-        theLegend.numberOfColumns = 2;
-        theLegend.equalRows = @YES;
-        theLegend.rowMargin = 5.;
-        theLegend.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:1. green:1. blue:1. alpha:.5]];
-        theLegend.borderLineStyle = nil;
-        theLegend.cornerRadius = 5.0;
-        // 4 - Add legend to graph
-        graph.legend = theLegend;
-        graph.legendAnchor = CPTRectAnchorBottom;
-//        CGFloat legendPadding = -(self.view.bounds.size.width);
-        graph.legendDisplacement = CGPointMake(0., 25.);
-
     }];
-    }
+    
+    [self configureSegmentControl];
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -127,6 +53,96 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)configureSegmentControl{
+    for (int i =0; i < self.graphByOptionStrings.count; i++) {
+        [self.segmentControl setTitle:self.graphByOptionStrings[i] forSegmentAtIndex:i];
+    }
+    [self.segmentControl setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.segmentControl setBackgroundImage:[UIImage imageNamed:@"rectangle"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [self.segmentControl setDividerImage:[[UIImage alloc] init]
+                     forLeftSegmentState:UIControlStateNormal
+                       rightSegmentState:UIControlStateNormal
+                              barMetrics:UIBarMetricsDefault];
+}
+
+
+-(void)configureGraph{
+    [self pieDataForGroupBy:self.graphBy];
+    
+    
+    // 1 - Create and initialize graph
+    CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
+    
+    self.hostView.hostedGraph = graph;
+    //    graph.paddingLeft = 0.0f;
+    //            graph.paddingTop = 0.0f;
+    //    graph.paddingRight = 0.0f;
+    //    graph.paddingBottom = 0.0f;
+    graph.axisSet = nil;
+    
+    // 2 - Set up text style
+    //        CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
+    //        textStyle.color = [CPTColor brownColor];
+    //        textStyle.fontName = @"Helvetica-Bold";
+    //        textStyle.fontSize = 13.0f;
+    // 3 - Configure title
+    //        NSString *title = [[[DataManager sharedManager].decisionTypes[0] name] capitalizedString];
+    //        graph.title = title;
+    //        graph.titleTextStyle = textStyle;
+    // 4 - Set theme
+    //        [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
+    // Do any additional setup after loading the view.
+    // 1 - Get reference to graph
+    //    CPTGraph *graph = self.hostView.hostedGraph;
+    // 2 - Create chart
+    self.pieChart = [[CPTPieChart alloc] init];
+    self.pieChart.dataSource = self;
+    self.pieChart.delegate = self;
+    CGFloat aspectFitFloatValue = MIN(self.hostView.bounds.size.width, self.hostView.bounds.size.height-100.);
+    self.pieChart.pieRadius = (aspectFitFloatValue *.7) / 2;
+    //        self.pieChart.pieInnerRadius = (self.hostView.bounds.size.width * 0.5) / 2;
+    
+    //        self.pieChart.identifier = graph.title;
+    self.pieChart.attributedTitle = [[NSAttributedString alloc] initWithString:@"test"];
+    self.pieChart.startAngle = M_PI_4;
+    self.pieChart.sliceDirection = CPTPieDirectionClockwise;
+    
+    //        self.pieChart.labelRotationRelativeToRadius = YES;
+    //        CPTMutableLineStyle *line=[CPTMutableLineStyle lineStyle];
+    //        line.lineColor=[CPTColor whiteColor];
+    //        line.lineWidth = 3.;
+    //        self.pieChart.borderLineStyle=line;
+    //
+    self.pieChart.labelOffset = 0;
+    CGFloat y = 1-((self.pieChart.pieRadius+30)/(self.hostView.bounds.size.height));
+    self.pieChart.centerAnchor = CGPointMake(0.5, y);
+    //        // 3 - Create gradient
+    //        CPTGradient *overlayGradient = [[CPTGradient alloc] init];
+    //        overlayGradient.gradientType = CPTGradientTypeRadial;
+    //        overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.0] atPosition:0.9];
+    //        overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.4] atPosition:1.0];
+    //        self.pieChart.overlayFill = [CPTFill fillWithGradient:overlayGradient];
+    // 4 - Add chart to graph
+    [graph addPlot:self.pieChart];
+    
+    CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];
+    theLegend.delegate = self;
+    // 3 - Configure legend
+    theLegend.numberOfColumns = 2;
+    theLegend.equalRows = YES;
+    theLegend.equalColumns = YES;
+    theLegend.rowMargin = 5.;
+    theLegend.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:1. green:1. blue:1. alpha:.5]];
+    theLegend.borderLineStyle = nil;
+    theLegend.cornerRadius = 5.0;
+    // 4 - Add legend to graph
+    graph.legend = theLegend;
+    graph.legendAnchor = CPTRectAnchorBottom;
+    //        CGFloat legendPadding = -(self.view.bounds.size.width);
+    //        graph.legendDisplacement = CGPointMake(0., 25.);
+
 }
 
 -(IBAction)didSelectSegment:(id)sender{
@@ -165,9 +181,7 @@
         self.selectedIndex = 0;
 
     }
-    
 
-   
     //get sorted pieKeys
     NSMutableArray *sortedKeys = [@[] mutableCopy];
     for (NSArray *array in self.pieData) {
@@ -231,45 +245,46 @@
     
     if (idx < self.pieData.count) {
 
-    
+        CGFloat fontSize = 13.;
+        if(self.hostView.bounds.size.width < 350.){
+            fontSize = fontSize-2;
+        }
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ : ", @([self.pieData[idx] count])]];
         
             if([self.pieKeys[idx] respondsToSelector:@selector(name)]){
                  [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:[self.pieKeys[idx] name]]];
             }else if ([self.pieKeys[idx] isKindOfClass:NSNumber.class]){
+//                fontSize = fontSize+2;
                 NSNumber *value = self.pieKeys[idx];
                 NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
                 NSNumber *imageOffset = nil;
                 if ([value isGreaterThan:@0]) {
+                    textAttachment.bounds = CGRectMake(0, -2, fontSize, fontSize);
                     textAttachment.image = [[UIImage imageNamed:@"thumbs_up_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
                     imageOffset = @-2;
                 }else if ([value isLessThan:@0]){
+                    textAttachment.bounds = CGRectMake(0, -4, fontSize, fontSize);
                     textAttachment.image = [[UIImage imageNamed:@"thumbs_down_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-                    imageOffset = @-6;
                 }else{
                     [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"none"]];
                 }
                 
                 if (textAttachment.image) {
-                    NSMutableAttributedString *attrStringWithImage = [[NSAttributedString attributedStringWithAttachment:textAttachment] mutableCopy];
-                    [attrStringWithImage
-                     addAttribute: NSBaselineOffsetAttributeName
-                     value: imageOffset
-                     range: NSMakeRange(0, 1)];
-                    
+                    NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
                     for (int i=0; i< abs([value intValue]); i++) {
                         [attributedString appendAttributedString:attrStringWithImage];
                     }
                 }
                 
             }
+        
 
         if (idx == self.selectedIndex) {
             [attributedString addAttribute:NSForegroundColorAttributeName value:[[self colorForIndex:idx].uiColor colorWithAlphaComponent:.9] range:NSMakeRange(0, [attributedString length])];
         }else{
             [attributedString addAttribute:NSForegroundColorAttributeName value:[CPTColor brownColor].uiColor range:NSMakeRange(0, [attributedString length])];
         }
-        [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15.] range:NSMakeRange(0, [attributedString length])];
+        [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, [attributedString length])];
         return attributedString;
     }
     
@@ -305,14 +320,14 @@
         }else if ([value isLessThan:@0]){
             return [CPTColor colorWithComponentRed:255/255. green:87/255. blue:59/255. alpha:alphaValue];
         }else{
-            return [CPTColor colorWithComponentRed:80/255. green:80/255. blue:50/255. alpha:alphaValue];
+            return [CPTColor colorWithComponentRed:100/255. green:60/255. blue:10/255. alpha:alphaValue];
         }
         
     }else{
         if (idx == self.selectedIndex) {
             return [CPTColor colorWithComponentRed:255/255. green:87/255. blue:59/255. alpha:alphaValue+.1];
         }
-        return [CPTColor colorWithComponentRed:80/255. green:80/255. blue:50/255. alpha:alphaValue];
+        return [CPTColor colorWithComponentRed:100/255. green:60/255. blue:10/255. alpha:alphaValue];
     }
 
 }

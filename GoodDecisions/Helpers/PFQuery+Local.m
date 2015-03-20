@@ -24,39 +24,51 @@
             //if data is removed from the backend the local pin doens't seem to be removed, so we're attempting to fix that here.
             [queryCopy findObjectsFromLocalDatastoreInBackgroundWithBlock:^(NSArray *localObjects, NSError *error) {
                 if(!error){
-                    if([localObjects count] != [objects count]) //refresh the pinned objects
+                    if([localObjects count] != [objects count]){ //refresh the pinned objects
                         [PFObject unpinAllInBackground:localObjects block:^(BOOL succeeded, NSError *error) {
                             if(succeeded){
                                 [PFObject pinAllInBackground:objects];
                                 success = YES;
+                                result?result(success, blockError):nil;
                             }else{
                                 DDLogWarn(@"%@", [error userInfo][@"error"]);
                                 blockError = error;
+                                result?result(success, blockError):nil;
                             }
                         }];
+                    }else{
+                        [PFObject pinAllInBackground:objects];
+                        success = YES;
+                        result?result(success, blockError):nil;
+                    }
                     
                 }else{
                     DDLogWarn(@"%@", [error userInfo][@"error"]);
                     blockError = error;
+                    result?result(success, blockError):nil;
                 }
             }];
         }else{
             DDLogWarn(@"%@", [error userInfo][@"error"]);
             blockError = error;
+            result?result(success, blockError):nil;
         }
     }];
     
-    result?result(success, blockError):nil;
 }
 
 -(BFTask *)findObjectsFromLocalDatastoreInBackground{
-    [self fromLocalDatastore];
-    return [self findObjectsInBackground];
+    PFQuery *queryCopy = [self copy]; //use a copy to avoid conflicts
+
+    [queryCopy fromLocalDatastore];
+    return [queryCopy findObjectsInBackground];
 }
 
 -(void)findObjectsFromLocalDatastoreInBackgroundWithBlock:(PFArrayResultBlock)block{
-    [self fromLocalDatastore];
-    [self findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    PFQuery *queryCopy = [self copy]; //use a copy to avoid conflicts
+
+    [queryCopy fromLocalDatastore];
+    [queryCopy findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         block?block(objects, error):nil;
     }];
 }

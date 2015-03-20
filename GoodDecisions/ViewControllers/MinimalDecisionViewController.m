@@ -41,16 +41,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //this entire if-statement is for testing only.
     
-    [self.type fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!error) {
-            self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
-        }else {
-            DDLogError(@"%@", [error userInfo][@"error"]);
-        }
-    }];
-    
+//    [self.type fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        if (!error) {
+//            self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
+//        }else {
+//            DDLogError(@"%@", [error userInfo][@"error"]);
+//        }
+//    }];
+    self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
+
     
     [self.type findAllInfluencesWithResult:^(NSArray *objects, NSError *error) {
         if (!error) {

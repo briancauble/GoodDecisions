@@ -10,11 +10,13 @@
 #import "UIView+Constraints.h"
 #import "MinimalDecisionViewController.h"
 #import "DataManager.h"
+#import "PFQuery+Local.h"
 
 @interface DecisionViewController ()
 @property (nonatomic, strong) UIViewController *setupVC;
 @property (nonatomic, strong) UIImageView *launchImageView;
 @property (nonatomic, assign) BOOL needsSetup;
+@property (nonatomic, strong) DecisionType *selectedType;
 
 @end
 
@@ -22,7 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    PFQuery *query = [DecisionType query];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        self.selectedType = (DecisionType*)object;
+    }];
+   
     // Do any additional setup after loading the view.
 }
 
@@ -73,7 +79,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"minimalDecisionViewSegue"]){
         MinimalDecisionViewController *destVC = segue.destinationViewController;
-        destVC.type = [DataManager sharedManager].decisionTypes[0];
+
+        destVC.type = self.selectedType;
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

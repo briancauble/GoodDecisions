@@ -19,16 +19,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PFQuery *query = [Habit query];
-    [query whereKey:@"type" containedIn:[DataManager sharedManager].decisionTypes];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            self.tableData = objects;
-            [self.tableView reloadData];
-        }else {
-            DDLogError(@"%@", [error userInfo][@"error"]);
+    
+    
+    [DecisionType findAllDecisionTypesWithResult:^(NSArray *objects, NSError *error) {
+        if(!error){
+            PFQuery *query = [Habit query];
+        
+            [query whereKey:@"type" containedIn:objects];
+
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    self.tableData = objects;
+                    [self.tableView reloadData];
+                }else {
+                    DDLogError(@"%@", [error userInfo][@"error"]);
+                }
+            }];
         }
     }];
+
     
     // Do any additional setup after loading the view.
 }

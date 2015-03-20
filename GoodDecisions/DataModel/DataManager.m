@@ -10,6 +10,10 @@
 #import "Habit.h"
 #import "DecisionType.h"
 #import "PFQuery+Local.h"
+#import "Decision.h"
+#import "Habit.h"
+#import "DecisionInfluence.h"
+#import "DecisionOutcome.h"
 
 
 @interface DataManager ()
@@ -26,9 +30,10 @@
             if(!error)
                 _decisionTypes = objects;
         }];
-          
+        [[Decision query] updateLocalDataStore];
+        [[DecisionInfluence query] updateLocalDataStore];
+        [[DecisionOutcome query] updateLocalDataStore];
         [self configureNotificationCategories];
-
     }
     return self;
 }
