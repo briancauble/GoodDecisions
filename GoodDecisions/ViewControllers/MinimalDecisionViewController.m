@@ -24,8 +24,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *decisionSentenceLabel;
 
 
-@property (nonatomic, strong) NSArray *whyData;
-@property (nonatomic, strong) NSArray *whatData;
+@property (nonatomic, strong) NSMutableArray *selectedData;
+@property (nonatomic, strong) NSMutableArray *collectionData;
 
 @end
 
@@ -42,19 +42,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.type fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        if (!error) {
-//            self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
-//        }else {
-//            DDLogError(@"%@", [error userInfo][@"error"]);
-//        }
-//    }];
     self.decisionPromptLabel.text =  self.type.defaultReminderPrompt;
+    self.collectionData = [@[@[],@[]] mutableCopy];
+    self.selectedData = [@[@[],@[]] mutableCopy];
 
-    
     [self.type findAllInfluencesWithResult:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.whyData = objects;
+            [self.collectionData replaceObjectAtIndex:0 withObject:objects];
             [self.collectionView reloadData];
         }
     }];
@@ -62,7 +56,7 @@
     
     [self.type findAllOutcomesWithResult:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.whatData = objects;
+            [self.collectionData replaceObjectAtIndex:1 withObject:objects];
             [self.collectionView reloadData];
         }
     }];
@@ -88,19 +82,18 @@
 -(void)updateSentence{
     
     NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
-    __block NSString *why;
-    __block NSString *what;
-    for (NSIndexPath * selectedItem in selectedItems) {
-        if (selectedItem.section) {
-            what = [self.whatData[selectedItem.item] name];
+    if (selectedItems.count >1) {
+        NSString *what = [[self.selectedData[1] valueForKey:@"name"] componentsJoinedByString:@" and "];
+        NSString *why  =  [[self.selectedData[0] valueForKey:@"name"] componentsJoinedByString:@" and "];
+        
+        if (why && what) {
+            self.decisionSentenceLabel.text = [NSString stringWithFormat:@"Because of %@, I %@.", why, what];
         }else{
-            why = [self.whyData[selectedItem.item] name];
+          self.decisionSentenceLabel.text = @"";
         }
+    }else{
+        self.decisionSentenceLabel.text = @"";
     }
-
-    if (why && what) {
-        self.decisionSentenceLabel.text = [NSString stringWithFormat:@"Because of %@, I %@.", why, what];
-    }else self.decisionSentenceLabel.text = @"";
 }
 
 #pragma mark - IBActions
@@ -113,17 +106,10 @@
     
     Decision *decision = [Decision new];
 
-    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
-
-    for (NSIndexPath *indexPath in selectedItems) {
-        if (indexPath.section) {
-            decision.outcome = self.whatData[indexPath.item];
-        }else{
-            decision.influence = self.whyData[indexPath.item];
-
-        }
-    }
-
+    decision.outcomes = self.selectedData[1];
+    decision.influences = self.selectedData[0];
+    
+    
     decision.user = [PFUser currentUser];
     decision.type = self.type;
     decision.score = @(self.ratingView.selectedValue);
@@ -145,14 +131,14 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return section?[self.whatData count]:[self.whyData count];
+    return [self.collectionData[section] count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"WhyCell";
     
     WhyCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    PFObject *object = indexPath.section?self.whatData[indexPath.item]:self.whyData[indexPath.item];
+    PFObject *object = self.collectionData[indexPath.section][indexPath.item];
     cell.textLabel.text = object[@"name"];
     cell.layer.masksToBounds = YES;
     cell.layer.cornerRadius = 20;
@@ -173,44 +159,56 @@
 #pragma mark - CollectionView Delegate
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
-    __block NSString *why;
-    __block NSString *what;
-    for (NSIndexPath * selectedItem in selectedItems) {
-        
-        if ((selectedItem.section == indexPath.section) && (selectedItem.item != indexPath.item)) {
-            [self.collectionView deselectItemAtIndexPath:selectedItem animated:NO];
-        }
-        if (selectedItem.section) {
-            what = [self.whatData[selectedItem.item] name];
-        }else{
-            why = [self.whyData[selectedItem.item] name];
-        }
-        
-    }
+    NSMutableArray *currentSelections = [self.selectedData[indexPath.section] mutableCopy];
+    [currentSelections addObject:self.collectionData[indexPath.section][indexPath.row]];
+    [self.selectedData replaceObjectAtIndex:indexPath.section withObject:currentSelections];
+//    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
+//    __block NSString *why;
+//    __block NSString *what;
+//    for (NSIndexPath * selectedItem in selectedItems) {
+//        
+//        if ((selectedItem.section == indexPath.section) && (selectedItem.item != indexPath.item)) {
+//            [self.collectionView deselectItemAtIndexPath:selectedItem animated:NO];
+//        }
+//        if (selectedItem.section) {
+//            what = [self.whatData[selectedItem.item] name];
+//        }else{
+//            why = [self.whyData[selectedItem.item] name];
+//        }
+//        
+//    }
     [self updateSentence];
 }
+//
+//-(BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
+//
+//    if ([selectedItems containsObject:indexPath]) {
+//        return NO;
+//    }
+//
+//    return YES;
+//}
 
--(BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray *currentSelections = [self.selectedData[indexPath.section] mutableCopy];
+    [currentSelections removeObject:self.collectionData[indexPath.section][indexPath.row]];
+    [self.selectedData replaceObjectAtIndex:indexPath.section withObject:currentSelections];
+    [self updateSentence];
 
-    if ([selectedItems containsObject:indexPath]) {
-        return NO;
-    }
-
-    return YES;
 }
+
+     
+     
 
 #pragma mark - Delegate Flow Layout
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
     NSUInteger itemCount = 0;
-    if (!section) {
-        itemCount = [self.whyData count];
-    }else{
-        itemCount = [self.whatData count];
-    }
+    itemCount = [self.collectionData[section] count];
+  
+    
     CGFloat totalItemWidth = collectionViewLayout.itemSize.width + collectionViewLayout.minimumInteritemSpacing;
     CGFloat maxWidth = self.collectionView.frame.size.width;
     CGFloat itemsPerRow =MIN(itemCount, floorf(maxWidth/totalItemWidth)) ;

@@ -12,7 +12,7 @@
 
 @implementation Decision
 
-@dynamic type, score, user, outcome, influence, location;
+@dynamic type, score, user, outcome, influence, location, influences, outcomes;
 
 
 + (void)load {

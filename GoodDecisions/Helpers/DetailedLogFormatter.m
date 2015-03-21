@@ -20,7 +20,7 @@
         default                 : logLevel = @""; break;
     }
     
-    return [NSString stringWithFormat:@"%@ | %@:%@ | %@\n", logLevel, logMessage->_function, @(logMessage->_line), logMessage->_message];
+    return [NSString stringWithFormat:@"%@ %@ | %@:%@ | %@\n", logMessage->_timestamp, logLevel, logMessage->_function, @(logMessage->_line), logMessage->_message];
 }
 
 @end

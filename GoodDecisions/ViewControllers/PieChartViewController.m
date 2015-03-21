@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) CPTPieChart *pieChart;
 @property (nonatomic, strong) NSArray *pieData;
+@property (nonatomic, strong) NSCountedSet *pieDataAAA;
 @property (nonatomic, strong) NSArray *pieKeys;
 @property (nonatomic, strong) NSArray *decisionData;
 @property (nonatomic, strong) NSString *graphBy;
@@ -31,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.graphByOptionStrings = @[@"influence", @"outcome", @"score"];
+    self.graphByOptionStrings = @[@"influences", @"outcomes", @"score"];
     self.graphBy =self.graphByOptionStrings[self.segmentControl.selectedSegmentIndex];
     
     [Decision findAllDecisionsWithResult:^(NSArray *objects, NSError *error) {
@@ -153,41 +154,66 @@
 }
 
 -(void)pieDataForGroupBy:(NSString *)groupBy{
-    //TODO:: use the groupBy string
-    NSString *path = [NSString stringWithFormat:@"@distinctUnionOfObjects.%@", groupBy];
-    self.pieKeys = [self.decisionData valueForKeyPath:path];
     
-    NSString *predicateString = [NSString stringWithFormat:@"%@ = $object", groupBy];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
-    
-    NSMutableArray *mArray= [@[] mutableCopy];
-    for (id obj in self.pieKeys) {
-        NSArray *array = [self.decisionData filteredArrayUsingPredicate:[predicate predicateWithSubstitutionVariables:@{@"object":obj}]];
-        [mArray addObject:array];
-    }
+//    NSArray *soureData = self.decisionData;
+//    NSString *predicateString = [NSString stringWithFormat:@"%@ = $object", groupBy];
 
-    if([self.pieKeys[0] isKindOfClass:NSNumber.class]){
-        self.pieData= [mArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"@max.score"
-                                                                                      ascending:NO]]];
+    NSArray *allValues;
+    if ([[self.decisionData firstObject][groupBy] isKindOfClass:NSArray.class]){ //plural is array?
+        NSString *path = [NSString stringWithFormat:@"@unionOfArrays.%@", groupBy];
+        allValues = [self.decisionData valueForKeyPath:path];
+//        predicateString = [NSString stringWithFormat:@"%@ contains $object", groupBy];
 
-        id obj = [[mArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"@count"
-                                                                                      ascending:NO]]] firstObject];
-        self.selectedIndex = [self.pieData indexOfObject:obj];
-
-        
     }else{
-        self.pieData= [mArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"@count"
-                                                                                      ascending:NO]]];
-        self.selectedIndex = 0;
-
+        NSString *path = [NSString stringWithFormat:@"@unionOfObjects.%@", groupBy];
+        allValues = [self.decisionData valueForKeyPath:path];
     }
+    
+    
+    if ([[allValues firstObject] isKindOfClass:NSNumber.class]) {
+        self.pieDataAAA = [[NSCountedSet alloc] initWithArray:allValues];
+        self.pieKeys = [self.pieDataAAA.allObjects sortedArrayUsingSelector:@selector(compare:)];
+
+    }else if ([[allValues firstObject] respondsToSelector:@selector(name)]){
+        self.pieDataAAA = [[NSCountedSet alloc] initWithArray:[allValues valueForKeyPath:@"name"]];
+        self.pieKeys = [self.pieDataAAA.allObjects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            NSUInteger n = [self.pieDataAAA countForObject:obj1];
+            NSUInteger m = [self.pieDataAAA countForObject:obj2];
+            return (n <= m)? (n < m)? NSOrderedDescending : NSOrderedSame : NSOrderedAscending;
+        }];
+    }
+    
+    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+//    NSMutableArray *mArray= [@[] mutableCopy];
+//    for (id obj in self.pieKeys) {
+//        NSArray *array = [soureData filteredArrayUsingPredicate:[predicate predicateWithSubstitutionVariables:@{@"object":obj}]];
+//        [mArray addObject:array];
+//    }
+
+//    if([self.pieKeys[0] isKindOfClass:NSNumber.class]){
+//        self.pieData= [mArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"@max.score"
+//                                                                                      ascending:NO]]];
+//
+//        id obj = [[mArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"@count"
+//                                                                                      ascending:NO]]] firstObject];
+//        self.selectedIndex = [self.pieData indexOfObject:obj];
+//
+//        
+//    }else{
+//        self.pieData= [mArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"@count"
+//                                                                                      ascending:NO]]];
+//        self.selectedIndex = 0;
+//
+//    }
 
     //get sorted pieKeys
-    NSMutableArray *sortedKeys = [@[] mutableCopy];
-    for (NSArray *array in self.pieData) {
-        [sortedKeys addObject:[array lastObject][groupBy]];
-    }
-    self.pieKeys = sortedKeys;
+//    NSMutableArray *sortedKeys = [@[] mutableCopy];
+//    for (NSArray *array in self.pieData) {
+//        [sortedKeys addObject:[array lastObject][groupBy]];
+//    }
+//    self.pieKeys = sortedKeys;
 }
 
 
@@ -204,13 +230,12 @@
 
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return self.pieData.count;
+    return self.pieKeys.count;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    if (CPTPieChartFieldSliceWidth == fieldEnum)
-    {
-        return @([self.pieData[index] count]);
+    if (CPTPieChartFieldSliceWidth == fieldEnum){
+        return @([self.pieDataAAA countForObject:self.pieKeys[index]]);
     }
     return [NSDecimalNumber zero];
 }
@@ -243,18 +268,17 @@
 
 -(NSAttributedString *)attributedLegendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx{
     
-    if (idx < self.pieData.count) {
+    if (idx < self.pieKeys.count) {
 
         CGFloat fontSize = 13.;
         if(self.hostView.bounds.size.width < 350.){
             fontSize = fontSize-2;
         }
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ : ", @([self.pieData[idx] count])]];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ : ", @([self.pieDataAAA countForObject:self.pieKeys[idx]])]];
         
-            if([self.pieKeys[idx] respondsToSelector:@selector(name)]){
-                 [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:[self.pieKeys[idx] name]]];
+            if([self.pieKeys[idx] isKindOfClass:NSString.class]){
+                 [attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:self.pieKeys[idx]]];
             }else if ([self.pieKeys[idx] isKindOfClass:NSNumber.class]){
-//                fontSize = fontSize+2;
                 NSNumber *value = self.pieKeys[idx];
                 NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
                 NSNumber *imageOffset = nil;
@@ -305,9 +329,9 @@
  }
 
 -(CPTColor *)colorForIndex:(NSUInteger)idx{
-    NSArray *array = self.pieData[idx];
-    CGFloat offset = (float)array.count/(float)self.decisionData.count;
-    CGFloat alphaValue = offset+((self.pieData.count -(float)idx)/15);
+    id obj = self.pieKeys[idx];
+    CGFloat offset = (float)[self.pieDataAAA countForObject:obj]/(float)self.decisionData.count;
+    CGFloat alphaValue = offset+((self.pieKeys.count -(float)idx)/15);
     
     if ([self.pieKeys[idx] isKindOfClass:NSNumber.class]) {
         
@@ -335,7 +359,6 @@
 -(void)pieChart:(CPTPieChart *)plot sliceWasSelectedAtRecordIndex:(NSUInteger)idx{
     self.selectedIndex = idx;
     [plot reloadData];
-    DDLogDebug(@"selected slice");
 }
 
 -(void)legend:(CPTLegend *)legend legendEntryForPlot:(CPTPlot *)plot wasSelectedAtIndex:(NSUInteger)idx{

@@ -18,6 +18,9 @@
 @property (nonatomic, strong) DecisionOutcome *outcome;
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, strong) PFGeoPoint *location;
+@property (nonatomic, strong) NSArray *influences;
+@property (nonatomic, strong) NSArray *outcomes;
+
 
 + (NSString *)parseClassName;
 
