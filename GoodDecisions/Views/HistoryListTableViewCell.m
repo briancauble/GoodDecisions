@@ -47,20 +47,7 @@
         self.scoreIndicatorView.backgroundColor = [testBadColor colorWithAlphaComponent:alpha];
         NSString *whys = [[decision.influences valueForKey:@"name"] componentsJoinedByString:@" and "];
         NSString *whats = [[decision.outcomes valueForKey:@"name"] componentsJoinedByString:@" and "];
-        //deprecated
-        if (decision.influence && decision.outcome) {
-            
-            self.descriptionLabel.text = [NSString stringWithFormat:@"Because of %@, I %@.", decision.influence.name, decision.outcome.name];
-            
-        }else if(decision.influence && !decision.outcome){
-            
-            self.descriptionLabel.text = [NSString stringWithFormat:@"Because of %@, I did not make a good decision", decision.influence.name];
-            
-        }else if (!decision.influence && decision.outcome){
-            
-            self.descriptionLabel.text = [NSString stringWithFormat:@"I %@.", decision.outcome.name];
-            //
-        }else if (decision.influences.count && decision.outcomes.count){
+        if (decision.influences.count && decision.outcomes.count){
             
             self.descriptionLabel.text = [NSString stringWithFormat:@"Because of %@, I %@.", whys, whats];
             

@@ -11,6 +11,11 @@
 		602D657E1AB9381B000106B6 /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D657D1AB9381B000106B6 /* PieChartViewController.m */; };
 		602D65841AB95350000106B6 /* DecisionInfluence.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D65831AB95350000106B6 /* DecisionInfluence.m */; };
 		602D65871AB9535D000106B6 /* DecisionOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D65861AB9535D000106B6 /* DecisionOutcome.m */; };
+		6050AF761ABD2FFF00FF5A75 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6050AF751ABD2FFF00FF5A75 /* NotificationCenter.framework */; };
+		6050AF7C1ABD2FFF00FF5A75 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050AF7B1ABD2FFF00FF5A75 /* TodayViewController.m */; };
+		6050AF7E1ABD2FFF00FF5A75 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6050AF7D1ABD2FFF00FF5A75 /* MainInterface.storyboard */; };
+		6050AF811ABD2FFF00FF5A75 /* GoodDecisions Entry.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6050AF741ABD2FFF00FF5A75 /* GoodDecisions Entry.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6050AF891ABD32E000FF5A75 /* slim.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6050AF881ABD32E000FF5A75 /* slim.xcassets */; };
 		6070D3871A9118FB0048BA7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3861A9118FB0048BA7C /* main.m */; };
 		6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3891A9118FB0048BA7C /* AppDelegate.m */; };
 		6070D3A41A9118FB0048BA7C /* GoodDecisionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3A31A9118FB0048BA7C /* GoodDecisionsTests.m */; };
@@ -43,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6050AF7F1ABD2FFF00FF5A75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6070D3791A9118FB0048BA7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6050AF731ABD2FFF00FF5A75;
+			remoteInfo = "GoodDecisions Entry";
+		};
 		6070D39E1A9118FB0048BA7C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6070D3791A9118FB0048BA7C /* Project object */;
@@ -52,6 +64,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6050AF851ABD2FFF00FF5A75 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6050AF811ABD2FFF00FF5A75 /* GoodDecisions Entry.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		398AE43E458FF6C3C76D31FD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		602D657C1AB9381B000106B6 /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController.h; sourceTree = "<group>"; };
@@ -60,6 +86,13 @@
 		602D65831AB95350000106B6 /* DecisionInfluence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionInfluence.m; sourceTree = "<group>"; };
 		602D65851AB9535D000106B6 /* DecisionOutcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionOutcome.h; sourceTree = "<group>"; };
 		602D65861AB9535D000106B6 /* DecisionOutcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionOutcome.m; sourceTree = "<group>"; };
+		6050AF741ABD2FFF00FF5A75 /* GoodDecisions Entry.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GoodDecisions Entry.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6050AF751ABD2FFF00FF5A75 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		6050AF791ABD2FFF00FF5A75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6050AF7A1ABD2FFF00FF5A75 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		6050AF7B1ABD2FFF00FF5A75 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		6050AF7D1ABD2FFF00FF5A75 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		6050AF881ABD32E000FF5A75 /* slim.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = slim.xcassets; sourceTree = "<group>"; };
 		6070D3811A9118FB0048BA7C /* GoodDecisions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDecisions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3851A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3861A9118FB0048BA7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +153,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6050AF711ABD2FFF00FF5A75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6050AF761ABD2FFF00FF5A75 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6070D37E1A9118FB0048BA7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,11 +188,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6050AF771ABD2FFF00FF5A75 /* GoodDecisions Entry */ = {
+			isa = PBXGroup;
+			children = (
+				6050AF7A1ABD2FFF00FF5A75 /* TodayViewController.h */,
+				6050AF7B1ABD2FFF00FF5A75 /* TodayViewController.m */,
+				6050AF7D1ABD2FFF00FF5A75 /* MainInterface.storyboard */,
+				6050AF781ABD2FFF00FF5A75 /* Supporting Files */,
+			);
+			path = "GoodDecisions Entry";
+			sourceTree = "<group>";
+		};
+		6050AF781ABD2FFF00FF5A75 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6050AF791ABD2FFF00FF5A75 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6070D3781A9118FB0048BA7C = {
 			isa = PBXGroup;
 			children = (
 				6070D3831A9118FB0048BA7C /* GoodDecisions */,
 				6070D3A01A9118FB0048BA7C /* GoodDecisionsTests */,
+				6050AF771ABD2FFF00FF5A75 /* GoodDecisions Entry */,
 				6070D3821A9118FB0048BA7C /* Products */,
 				526F747EA309C9DF3986645D /* Pods */,
 				70FFEB646029886F5A072887 /* Frameworks */,
@@ -163,6 +224,7 @@
 			children = (
 				6070D3811A9118FB0048BA7C /* GoodDecisions.app */,
 				6070D39D1A9118FB0048BA7C /* GoodDecisionsTests.xctest */,
+				6050AF741ABD2FFF00FF5A75 /* GoodDecisions Entry.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +279,7 @@
 				60A8BE9B1AA8AE180042A733 /* Fonts */,
 				60A8BE9D1AA8AE180042A733 /* Images.xcassets */,
 				60A8BE9E1AA8AE180042A733 /* Main.storyboard */,
+				6050AF881ABD32E000FF5A75 /* slim.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -316,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				398AE43E458FF6C3C76D31FD /* libPods.a */,
+				6050AF751ABD2FFF00FF5A75 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -323,6 +387,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6050AF731ABD2FFF00FF5A75 /* GoodDecisions Entry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6050AF821ABD2FFF00FF5A75 /* Build configuration list for PBXNativeTarget "GoodDecisions Entry" */;
+			buildPhases = (
+				6050AF701ABD2FFF00FF5A75 /* Sources */,
+				6050AF711ABD2FFF00FF5A75 /* Frameworks */,
+				6050AF721ABD2FFF00FF5A75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GoodDecisions Entry";
+			productName = "GoodDecisions Entry";
+			productReference = 6050AF741ABD2FFF00FF5A75 /* GoodDecisions Entry.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		6070D3801A9118FB0048BA7C /* GoodDecisions */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6070D3A71A9118FB0048BA7C /* Build configuration list for PBXNativeTarget "GoodDecisions" */;
@@ -332,10 +413,12 @@
 				6070D37E1A9118FB0048BA7C /* Frameworks */,
 				6070D37F1A9118FB0048BA7C /* Resources */,
 				7B4A925FF217242B7EA81C52 /* Copy Pods Resources */,
+				6050AF851ABD2FFF00FF5A75 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6050AF801ABD2FFF00FF5A75 /* PBXTargetDependency */,
 			);
 			name = GoodDecisions;
 			productName = GoodDecisions;
@@ -369,6 +452,9 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Brian Cauble";
 				TargetAttributes = {
+					6050AF731ABD2FFF00FF5A75 = {
+						CreatedOnToolsVersion = 6.2;
+					};
 					6070D3801A9118FB0048BA7C = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -393,11 +479,21 @@
 			targets = (
 				6070D3801A9118FB0048BA7C /* GoodDecisions */,
 				6070D39C1A9118FB0048BA7C /* GoodDecisionsTests */,
+				6050AF731ABD2FFF00FF5A75 /* GoodDecisions Entry */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6050AF721ABD2FFF00FF5A75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6050AF7E1ABD2FFF00FF5A75 /* MainInterface.storyboard in Resources */,
+				6050AF891ABD32E000FF5A75 /* slim.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6070D37F1A9118FB0048BA7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +550,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6050AF701ABD2FFF00FF5A75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6050AF7C1ABD2FFF00FF5A75 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6070D37D1A9118FB0048BA7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,6 +601,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6050AF801ABD2FFF00FF5A75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6050AF731ABD2FFF00FF5A75 /* GoodDecisions Entry */;
+			targetProxy = 6050AF7F1ABD2FFF00FF5A75 /* PBXContainerItemProxy */;
+		};
 		6070D39F1A9118FB0048BA7C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6070D3801A9118FB0048BA7C /* GoodDecisions */;
@@ -524,6 +633,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6050AF831ABD2FFF00FF5A75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GoodDecisions Entry/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6050AF841ABD2FFF00FF5A75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "GoodDecisions Entry/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		6070D3A51A9118FB0048BA7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -669,6 +807,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6050AF821ABD2FFF00FF5A75 /* Build configuration list for PBXNativeTarget "GoodDecisions Entry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6050AF831ABD2FFF00FF5A75 /* Debug */,
+				6050AF841ABD2FFF00FF5A75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6070D37C1A9118FB0048BA7C /* Build configuration list for PBXProject "GoodDecisions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

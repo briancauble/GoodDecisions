@@ -1,5 +1,6 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
 
-pod 'CocoaLumberjack', '~>2.0.0-rc2'
+pod 'CocoaLumberjack'
 pod 'Parse'
-pod 'coreplot'
+pod 'CorePlot', :git => 'https://github.com/core-plot/core-plot.git', :branch => 'release-2.0'
+
