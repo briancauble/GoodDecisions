@@ -11,11 +11,16 @@
 		602D657E1AB9381B000106B6 /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D657D1AB9381B000106B6 /* PieChartViewController.m */; };
 		602D65841AB95350000106B6 /* DecisionInfluence.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D65831AB95350000106B6 /* DecisionInfluence.m */; };
 		602D65871AB9535D000106B6 /* DecisionOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 602D65861AB9535D000106B6 /* DecisionOutcome.m */; };
+		605086431AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 605086411AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.m */; };
+		605086471AC1233600FA1BFA /* CGDDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605086451AC1233600FA1BFA /* CGDDecisionViewController.m */; };
 		6050AF761ABD2FFF00FF5A75 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6050AF751ABD2FFF00FF5A75 /* NotificationCenter.framework */; };
 		6050AF7C1ABD2FFF00FF5A75 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050AF7B1ABD2FFF00FF5A75 /* TodayViewController.m */; };
 		6050AF7E1ABD2FFF00FF5A75 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6050AF7D1ABD2FFF00FF5A75 /* MainInterface.storyboard */; };
 		6050AF811ABD2FFF00FF5A75 /* GoodDecisions Entry.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6050AF741ABD2FFF00FF5A75 /* GoodDecisions Entry.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6050AF891ABD32E000FF5A75 /* slim.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6050AF881ABD32E000FF5A75 /* slim.xcassets */; };
+		6050AF8C1AC1120D00FF5A75 /* CGDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050AF8B1AC1120D00FF5A75 /* CGDSlider.m */; };
+		6050AF8F1AC1168900FF5A75 /* UIColor+GoodDecisions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050AF8E1AC1168900FF5A75 /* UIColor+GoodDecisions.m */; };
+		6050AF901AC1168900FF5A75 /* UIColor+GoodDecisions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050AF8E1AC1168900FF5A75 /* UIColor+GoodDecisions.m */; };
 		6070D3871A9118FB0048BA7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3861A9118FB0048BA7C /* main.m */; };
 		6070D38A1A9118FB0048BA7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3891A9118FB0048BA7C /* AppDelegate.m */; };
 		6070D3A41A9118FB0048BA7C /* GoodDecisionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3A31A9118FB0048BA7C /* GoodDecisionsTests.m */; };
@@ -25,7 +30,7 @@
 		60A8BEA11AA8AE180042A733 /* ReenieBeanie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE9C1AA8AE180042A733 /* ReenieBeanie.ttf */; };
 		60A8BEA21AA8AE180042A733 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE9D1AA8AE180042A733 /* Images.xcassets */; };
 		60A8BEA31AA8AE180042A733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BE9E1AA8AE180042A733 /* Main.storyboard */; };
-		60A8BEA91AA8AE220042A733 /* DecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEA61AA8AE220042A733 /* DecisionViewController.m */; };
+		60A8BEA91AA8AE220042A733 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEA61AA8AE220042A733 /* HomeViewController.m */; };
 		60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */; };
 		60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB11AA8BC890042A733 /* SetupDoneViewController.m */; };
 		60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEB41AA8BCBD0042A733 /* SignupViewController.m */; };
@@ -39,7 +44,6 @@
 		60A8BED51AA99A5B0042A733 /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A8BED41AA99A5B0042A733 /* RatingView.xib */; };
 		60A8BED81AA9A00C0042A733 /* RatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BED71AA9A00C0042A733 /* RatingView.m */; };
 		60A8BEDB1AA9E7180042A733 /* TintedBackgroundImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEDA1AA9E7170042A733 /* TintedBackgroundImageButton.m */; };
-		60A8BEDE1AA9F6F90042A733 /* WhyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */; };
 		60A8BEE41AA9F8C00042A733 /* MinimalDecisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */; };
 		60A8BEE71AAA1A090042A733 /* DecisionHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */; };
 		60CF10B01AB9110D00B95CD2 /* HistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CF10AF1AB9110D00B95CD2 /* HistoryListViewController.m */; };
@@ -86,6 +90,10 @@
 		602D65831AB95350000106B6 /* DecisionInfluence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionInfluence.m; sourceTree = "<group>"; };
 		602D65851AB9535D000106B6 /* DecisionOutcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionOutcome.h; sourceTree = "<group>"; };
 		602D65861AB9535D000106B6 /* DecisionOutcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionOutcome.m; sourceTree = "<group>"; };
+		605086411AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDDecisionInfoCollectionViewCell.m; sourceTree = "<group>"; };
+		605086421AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGDDecisionInfoCollectionViewCell.h; sourceTree = "<group>"; };
+		605086451AC1233600FA1BFA /* CGDDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDDecisionViewController.m; sourceTree = "<group>"; };
+		605086461AC1233600FA1BFA /* CGDDecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGDDecisionViewController.h; sourceTree = "<group>"; };
 		6050AF741ABD2FFF00FF5A75 /* GoodDecisions Entry.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GoodDecisions Entry.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6050AF751ABD2FFF00FF5A75 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		6050AF791ABD2FFF00FF5A75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +101,10 @@
 		6050AF7B1ABD2FFF00FF5A75 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		6050AF7D1ABD2FFF00FF5A75 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		6050AF881ABD32E000FF5A75 /* slim.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = slim.xcassets; sourceTree = "<group>"; };
+		6050AF8A1AC1120D00FF5A75 /* CGDSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGDSlider.h; sourceTree = "<group>"; };
+		6050AF8B1AC1120D00FF5A75 /* CGDSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDSlider.m; sourceTree = "<group>"; };
+		6050AF8D1AC1168900FF5A75 /* UIColor+GoodDecisions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GoodDecisions.h"; sourceTree = "<group>"; };
+		6050AF8E1AC1168900FF5A75 /* UIColor+GoodDecisions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GoodDecisions.m"; sourceTree = "<group>"; };
 		6070D3811A9118FB0048BA7C /* GoodDecisions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDecisions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3851A9118FB0048BA7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6070D3861A9118FB0048BA7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,8 +120,8 @@
 		60A8BE9C1AA8AE180042A733 /* ReenieBeanie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ReenieBeanie.ttf; sourceTree = "<group>"; };
 		60A8BE9D1AA8AE180042A733 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		60A8BE9E1AA8AE180042A733 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		60A8BEA51AA8AE220042A733 /* DecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionViewController.h; sourceTree = "<group>"; };
-		60A8BEA61AA8AE220042A733 /* DecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionViewController.m; sourceTree = "<group>"; };
+		60A8BEA51AA8AE220042A733 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		60A8BEA61AA8AE220042A733 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		60A8BEAC1AA8B3130042A733 /* UIView+Constraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Constraints.h"; sourceTree = "<group>"; };
 		60A8BEAD1AA8B3130042A733 /* UIView+Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Constraints.m"; sourceTree = "<group>"; };
 		60A8BEB01AA8BC890042A733 /* SetupDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupDoneViewController.h; sourceTree = "<group>"; };
@@ -136,8 +148,6 @@
 		60A8BED71AA9A00C0042A733 /* RatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingView.m; sourceTree = "<group>"; };
 		60A8BED91AA9E7170042A733 /* TintedBackgroundImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TintedBackgroundImageButton.h; sourceTree = "<group>"; };
 		60A8BEDA1AA9E7170042A733 /* TintedBackgroundImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TintedBackgroundImageButton.m; sourceTree = "<group>"; };
-		60A8BEDC1AA9F6F90042A733 /* WhyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyCollectionViewCell.h; sourceTree = "<group>"; };
-		60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyCollectionViewCell.m; sourceTree = "<group>"; };
 		60A8BEE21AA9F8C00042A733 /* MinimalDecisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinimalDecisionViewController.h; sourceTree = "<group>"; };
 		60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinimalDecisionViewController.m; sourceTree = "<group>"; };
 		60A8BEE51AAA1A080042A733 /* DecisionHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionHeaderCollectionReusableView.h; sourceTree = "<group>"; };
@@ -296,8 +306,10 @@
 			isa = PBXGroup;
 			children = (
 				60A8BEAF1AA8BC890042A733 /* Setup */,
-				60A8BEA51AA8AE220042A733 /* DecisionViewController.h */,
-				60A8BEA61AA8AE220042A733 /* DecisionViewController.m */,
+				605086461AC1233600FA1BFA /* CGDDecisionViewController.h */,
+				605086451AC1233600FA1BFA /* CGDDecisionViewController.m */,
+				60A8BEA51AA8AE220042A733 /* HomeViewController.h */,
+				60A8BEA61AA8AE220042A733 /* HomeViewController.m */,
 				60A8BEE21AA9F8C00042A733 /* MinimalDecisionViewController.h */,
 				60A8BEE31AA9F8C00042A733 /* MinimalDecisionViewController.m */,
 				60CF10AE1AB9110D00B95CD2 /* HistoryListViewController.h */,
@@ -317,6 +329,8 @@
 				60E46B2E1AAB4EFF0029DE09 /* DetailedLogFormatter.m */,
 				607A14A01AADD4AD00736AA7 /* PFQuery+Local.h */,
 				607A14A11AADD4AD00736AA7 /* PFQuery+Local.m */,
+				6050AF8D1AC1168900FF5A75 /* UIColor+GoodDecisions.h */,
+				6050AF8E1AC1168900FF5A75 /* UIColor+GoodDecisions.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -358,6 +372,8 @@
 		60A8BEBE1AA8ECAC0042A733 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				605086421AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.h */,
+				605086411AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.m */,
 				60A8BEBF1AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.h */,
 				60A8BEC01AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m */,
 				60A8BED41AA99A5B0042A733 /* RatingView.xib */,
@@ -365,12 +381,12 @@
 				60A8BED71AA9A00C0042A733 /* RatingView.m */,
 				60A8BED91AA9E7170042A733 /* TintedBackgroundImageButton.h */,
 				60A8BEDA1AA9E7170042A733 /* TintedBackgroundImageButton.m */,
-				60A8BEDC1AA9F6F90042A733 /* WhyCollectionViewCell.h */,
-				60A8BEDD1AA9F6F90042A733 /* WhyCollectionViewCell.m */,
 				60A8BEE51AAA1A080042A733 /* DecisionHeaderCollectionReusableView.h */,
 				60A8BEE61AAA1A080042A733 /* DecisionHeaderCollectionReusableView.m */,
 				60CF10B11AB9169300B95CD2 /* HistoryListTableViewCell.h */,
 				60CF10B21AB9169300B95CD2 /* HistoryListTableViewCell.m */,
+				6050AF8A1AC1120D00FF5A75 /* CGDSlider.h */,
+				6050AF8B1AC1120D00FF5A75 /* CGDSlider.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -554,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6050AF901AC1168900FF5A75 /* UIColor+GoodDecisions.m in Sources */,
 				6050AF7C1ABD2FFF00FF5A75 /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,10 +580,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				60A8BEC11AA8ECE70042A733 /* CheckmarkSelectedTableViewCell.m in Sources */,
-				60A8BEDE1AA9F6F90042A733 /* WhyCollectionViewCell.m in Sources */,
+				6050AF8F1AC1168900FF5A75 /* UIColor+GoodDecisions.m in Sources */,
 				60A8BEE71AAA1A090042A733 /* DecisionHeaderCollectionReusableView.m in Sources */,
 				60A8BEB51AA8BCBD0042A733 /* SignupViewController.m in Sources */,
 				607A14A21AADD4AD00736AA7 /* PFQuery+Local.m in Sources */,
+				6050AF8C1AC1120D00FF5A75 /* CGDSlider.m in Sources */,
 				60CF10B01AB9110D00B95CD2 /* HistoryListViewController.m in Sources */,
 				60A8BEB21AA8BC890042A733 /* SetupDoneViewController.m in Sources */,
 				60E46B2F1AAB4EFF0029DE09 /* DetailedLogFormatter.m in Sources */,
@@ -578,15 +596,17 @@
 				6070D3871A9118FB0048BA7C /* main.m in Sources */,
 				60A8BEAE1AA8B3130042A733 /* UIView+Constraints.m in Sources */,
 				60A8BECA1AA8FFFC0042A733 /* Decision.m in Sources */,
+				605086471AC1233600FA1BFA /* CGDDecisionViewController.m in Sources */,
 				60CF10B31AB9169300B95CD2 /* HistoryListTableViewCell.m in Sources */,
 				602D65871AB9535D000106B6 /* DecisionOutcome.m in Sources */,
+				605086431AC121AE00FA1BFA /* CGDDecisionInfoCollectionViewCell.m in Sources */,
 				602D657E1AB9381B000106B6 /* PieChartViewController.m in Sources */,
 				602D65841AB95350000106B6 /* DecisionInfluence.m in Sources */,
 				60A8BEDB1AA9E7180042A733 /* TintedBackgroundImageButton.m in Sources */,
 				60A8BEE41AA9F8C00042A733 /* MinimalDecisionViewController.m in Sources */,
 				60A8BED31AA905360042A733 /* Reminder.m in Sources */,
 				60A8BEC41AA8FC2E0042A733 /* DataManager.m in Sources */,
-				60A8BEA91AA8AE220042A733 /* DecisionViewController.m in Sources */,
+				60A8BEA91AA8AE220042A733 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +834,7 @@
 				6050AF841ABD2FFF00FF5A75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6070D37C1A9118FB0048BA7C /* Build configuration list for PBXProject "GoodDecisions" */ = {
 			isa = XCConfigurationList;

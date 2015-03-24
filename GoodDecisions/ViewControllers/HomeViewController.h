@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DecisionViewController : UIViewController
+@interface HomeViewController : UIViewController
 
 @end

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Brian Cauble. All rights reserved.
 //
 
-#import "WhyCollectionViewCell.h"
-@interface WhyCollectionViewCell ()
+#import "CGDDecisionInfoCollectionViewCell.h"
+@interface CGDDecisionInfoCollectionViewCell ()
 @end
 
-@implementation WhyCollectionViewCell
+@implementation CGDDecisionInfoCollectionViewCell
 
 -(void)setHighlighted:(BOOL)highlighted{
     //invert

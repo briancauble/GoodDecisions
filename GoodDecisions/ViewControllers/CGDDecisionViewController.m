@@ -1,5 +1,5 @@
 //
-//  MinimalDecisionViewController.m
+//  CGDDecisionViewController.m
 //  GoodDecisions
 //
 //  Created by Abigail Fritz on 3/6/15.
@@ -7,7 +7,7 @@
 //
 
 
-#import "MinimalDecisionViewController.h"
+#import "CGDDecisionViewController.h"
 #import "CGDDecisionInfoCollectionViewCell.h"
 #import "DataManager.h"
 #import "DecisionHeaderCollectionReusableView.h"
@@ -15,8 +15,9 @@
 #import "RatingView.h"
 #import "Decision.h"
 #import "PFQuery+Local.h"
+#import "UIColor+GoodDecisions.h"
 
-@interface MinimalDecisionViewController ()
+@interface CGDDecisionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UILabel *decisionPromptLabel;
@@ -30,11 +31,8 @@
 @end
 
 
-@interface MinimalDecisionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@end
-
-@implementation MinimalDecisionViewController
+@implementation CGDDecisionViewController
 
 
 #pragma mark - LifeCycle
@@ -135,14 +133,23 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"WhyCell";
+    static NSString *cellIdentifier = @"InfoCell";
     
     CGDDecisionInfoCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     PFObject *object = self.collectionData[indexPath.section][indexPath.item];
     cell.textLabel.text = object[@"name"];
     cell.layer.masksToBounds = YES;
-    cell.layer.cornerRadius = 20;
+    cell.layer.cornerRadius = 12;
+    cell.layer.borderWidth = 2.0;
+    cell.layer.borderColor = [[UIColor lightOrangeColor] CGColor];
     return cell;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    PFObject *object = self.collectionData[indexPath.section][indexPath.item];
+    CGSize size =[(NSString*)object[@"name"] sizeWithAttributes:NULL];
+    return (CGSize){size.width+40, size.height+12};
+
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -150,7 +157,7 @@
     DecisionHeaderCollectionReusableView *view = nil;
     if(kind == UICollectionElementKindSectionHeader){
         view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SectionHeader" forIndexPath:indexPath];
-        view.titleLabel.text = indexPath.section?@"What":@"Why";
+        view.titleLabel.text = indexPath.section?@"WHAT DID YOU DO":@"WHY DID YOU DO IT";
     }
     return view;
     
@@ -162,33 +169,10 @@
     NSMutableArray *currentSelections = [self.selectedData[indexPath.section] mutableCopy];
     [currentSelections addObject:self.collectionData[indexPath.section][indexPath.row]];
     [self.selectedData replaceObjectAtIndex:indexPath.section withObject:currentSelections];
-//    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
-//    __block NSString *why;
-//    __block NSString *what;
-//    for (NSIndexPath * selectedItem in selectedItems) {
-//        
-//        if ((selectedItem.section == indexPath.section) && (selectedItem.item != indexPath.item)) {
-//            [self.collectionView deselectItemAtIndexPath:selectedItem animated:NO];
-//        }
-//        if (selectedItem.section) {
-//            what = [self.whatData[selectedItem.item] name];
-//        }else{
-//            why = [self.whyData[selectedItem.item] name];
-//        }
-//        
-//    }
     [self updateSentence];
 }
-//
-//-(BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    NSArray * selectedItems = self.collectionView.indexPathsForSelectedItems;
-//
-//    if ([selectedItems containsObject:indexPath]) {
-//        return NO;
-//    }
-//
-//    return YES;
-//}
+
+
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableArray *currentSelections = [self.selectedData[indexPath.section] mutableCopy];
@@ -203,21 +187,21 @@
 
 #pragma mark - Delegate Flow Layout
 
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    
-    NSUInteger itemCount = 0;
-    itemCount = [self.collectionData[section] count];
-  
-    
-    CGFloat totalItemWidth = collectionViewLayout.itemSize.width + collectionViewLayout.minimumInteritemSpacing;
-    CGFloat maxWidth = self.collectionView.frame.size.width;
-    CGFloat itemsPerRow =MIN(itemCount, floorf(maxWidth/totalItemWidth)) ;
-    
-    CGFloat rowWidth = itemsPerRow * totalItemWidth;
-    CGFloat xInset = (maxWidth-rowWidth)/2;
-        return (UIEdgeInsets){0,xInset,0,xInset};
-    
-}
+//-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//    
+//    NSUInteger itemCount = 0;
+//    itemCount = [self.collectionData[section] count];
+//  
+//    
+//    CGFloat totalItemWidth = collectionViewLayout.itemSize.width + collectionViewLayout.minimumInteritemSpacing;
+//    CGFloat maxWidth = self.collectionView.frame.size.width;
+//    CGFloat itemsPerRow =MIN(itemCount, floorf(maxWidth/totalItemWidth)) ;
+//    
+//    CGFloat rowWidth = itemsPerRow * totalItemWidth;
+//    CGFloat xInset = (maxWidth-rowWidth)/2;
+//        return (UIEdgeInsets){0,xInset,0,xInset};
+//    
+//}
 
 /*
 #pragma mark - Navigation

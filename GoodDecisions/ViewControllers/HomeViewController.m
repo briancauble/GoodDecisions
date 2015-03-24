@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Brian Cauble. All rights reserved.
 //
 
-#import "DecisionViewController.h"
+#import "HomeViewController.h"
 #import "UIView+Constraints.h"
-#import "MinimalDecisionViewController.h"
+#import "CGDDecisionViewController.h"
 #import "DataManager.h"
 #import "PFQuery+Local.h"
 
-@interface DecisionViewController ()
+@interface HomeViewController ()
 @property (nonatomic, strong) UIViewController *setupVC;
 @property (nonatomic, strong) UIImageView *launchImageView;
 @property (nonatomic, assign) BOOL needsSetup;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation DecisionViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,8 +77,8 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"minimalDecisionViewSegue"]){
-        MinimalDecisionViewController *destVC = segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"DecisionViewSegue"]){
+        CGDDecisionViewController *destVC = segue.destinationViewController;
 
         destVC.type = self.selectedType;
     }

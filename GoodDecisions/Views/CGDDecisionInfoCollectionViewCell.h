@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WhyCollectionViewCell : UICollectionViewCell
+@interface CGDDecisionInfoCollectionViewCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UILabel *textLabel;
 
 @end

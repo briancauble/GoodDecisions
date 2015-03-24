@@ -9,12 +9,14 @@ PODS:
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
   - CorePlot (99.99.99)
+  - KTCenterFlowLayout (0.0.2)
   - Parse (1.6.5):
     - Bolts (~> 1.1)
 
 DEPENDENCIES:
   - CocoaLumberjack
   - CorePlot (from `https://github.com/core-plot/core-plot.git`, branch `release-2.0`)
+  - KTCenterFlowLayout
   - Parse
 
 EXTERNAL SOURCES:
@@ -31,6 +33,7 @@ SPEC CHECKSUMS:
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   CocoaLumberjack: fd2b1031c6c4e0f08b5ea928ef677fa0a5de517d
   CorePlot: 80c046fdb3f9f44c73a5ca5887c54ded52510105
+  KTCenterFlowLayout: add70553644c401a6e4c51acf4fdbd5a91a1bae0
   Parse: a21db4037d70a68a4ec64ecc0f327ed475cc14f8
 
 COCOAPODS: 0.36.0
